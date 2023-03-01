@@ -1,0 +1,48 @@
+.form-group label{
+    right: 0.75rem;
+    left: auto;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid{
+    background-position: left calc(.375em + .1875rem) center;
+    padding-left: calc(1.5em + 0.75rem);
+    padding-right: 0.75rem;
+}
+.welcome-section .welcome-list li{
+    padding-left: 0;
+    padding-right: 50px;
+}
+.welcome-section .welcome-list li::after{
+    left: auto;
+    right: 0;
+}
+.welcome-section .welcome-list li::before{
+    right: 0;
+    left: auto;
+}
+.slick-slider{
+    direction: ltr;
+}
+[dir='rtl'] .slick-slide{
+    float: left;
+}
+.welcome-section .welcome-slider .welcome-slider-item{
+    direction: rtl;
+}
+.welcome-section .welcome-slider .welcome-slider-item ul li{
+    padding-left: 0;
+    padding-right: 30px;
+}
+.welcome-section .welcome-slider .welcome-slider-item ul{
+    padding: 0 150px 0 0;
+}
+.welcome-section .welcome-slider .welcome-slider-item ul li:before,
+.welcome-section .welcome-slider .welcome-slider-item ul li:after{
+    left: auto;
+    right: 0;
+}
+.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: .25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+}
