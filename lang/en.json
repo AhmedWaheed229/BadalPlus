@@ -13,7 +13,7 @@
     "permissions": "Permissions",
     "login": "Login",
     "register": "Register",
-    "enter your valid data to get into your account" : "Enter your valid data to get into your account",
+    "enter your valid data to get into your account": "Enter your valid data to get into your account",
     "settings": "Settings",
     "address_ar": "Address In Arabic",
     "address_en": "Address In English",
@@ -46,5 +46,9 @@
     "password": "Password",
     "password_confirmation": "Password Confirmation",
     "email": "Email",
-    "profile": "Profile"
+    "profile": "Profile",
+    "vf cash numbers section": "Vodafone Cash Section",
+    "vf cash numbers": "Vodafone Cash Numbers",
+    "vf cash number": "number",
+    "vf cash show": "Showing"
 }

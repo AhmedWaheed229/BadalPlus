@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\VfCash;
 use App\Traits\FilesTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -210,7 +211,8 @@ class UserController extends Controller
 
     public function addBalance()
     {
-        return $this->view('add-balance');
+        $numbers = DB::table('vf_numbers')->where('show','1')->select('number')->get();
+        return $this->view('add-balance')->with('numbers',$numbers);
     }
 
     public function rechargeRequest(Request $request)

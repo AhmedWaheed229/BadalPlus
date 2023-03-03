@@ -15,6 +15,7 @@ Route::group(['middleware' => ['auth', 'check_active']], function () {
         Route::resource('/categories', 'CategoryController');
         Route::resource('/why_us', 'WhyusController');
         Route::resource('/currencies', 'CurrenciesController');
+        Route::resource('/cash','VfCashController');
 
         Route::get('/posts/activate/{id}', 'PostController@activate')->name("posts.activate");
         Route::get('/posts/inactivate/{id}', 'PostController@inActivate')->name("posts.inactivate");

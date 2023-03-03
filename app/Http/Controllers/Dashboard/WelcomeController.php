@@ -88,7 +88,6 @@ class WelcomeController extends Controller
         $record = $this->model->findOrFail($id);
         $record->update($data);
         return redirect(route('welcomes.index'))->with(['success' => __('updated successfully')]);
-
     }
 
     public function destroy($id)

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\FilesTrait;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -17,43 +19,50 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'uid' => 'required|max:20',
             'email' => 'required|string|email',
             'password' => 'required|string'
         ]);
         if ($validator->fails()) {
-            return response()->json(['status' => false, 'data'=>$validator->messages()]);
+            return response()->json(['status' => false, 'data' => $validator->messages()]);
         }
-        //Check email
 
-        $user = User::where('email', $request->email)->first();
-
-        //Check Password
-        if (!$user || !Hash::check($request->password, $user->password)) {
+        //Check Credentials
+        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return response([
                 'message' => 'Invalid Credentials'
             ], 401);
         }
-
-        if (!$user->api_token) {
-            $user->api_token = Str::random(60);
-            $user->save();
+        $user = auth()->user();
+        $usercheck = DB::table('personal_access_tokens')->where('tokenable_id',$user->id);
+        if ($usercheck->get()=='[]') {
+            $usercheck->delete();
+            User::where('id',$user->id)->update([
+                'uid'=>$request->uid
+            ]);
+            $token = $user->createToken(auth()->user()->name);
+        }else{
+            return response([
+                'message'=> 'already used device'
+            ]);
         }
 
         return response()->json([
             "status" => true,
             "data" => $user,
-            "token" => $user->api_token
+            "token" => $token->plainTextToken
         ]);
     }
 
-    public function user(){
+    public function user()
+    {
         $user = auth('api')->user();
-        if ($user){
+        if ($user) {
             return response()->json([
                 "status" => true,
                 "data" => $user,
             ]);
-        }else{
+        } else {
             return response()->json([
                 "status" => false,
                 "msg" => __("user not found"),
@@ -61,34 +70,35 @@ class AuthController extends Controller
         }
     }
 
-    public function updateUser(Request $request){
+    public function updateUser(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'required|email|unique:users,email,'.auth('api')->id(),
-            'phone' => ['required','regex:/[0-9]([0-9]|-(?!-))+/','unique:users,phone,'.auth('api')->id()],
+            'email' => 'required|email|unique:users,email,' . auth('api')->id(),
+            'phone' => ['required', 'regex:/[0-9]([0-9]|-(?!-))+/', 'unique:users,phone,' . auth('api')->id()],
             'location' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'facebook' => 'nullable|url',
             'twitter' => 'nullable|url',
         ]);
         if ($validator->fails()) {
-            return response()->json(['status' => false, 'data'=>$validator->messages()]);
+            return response()->json(['status' => false, 'data' => $validator->messages()]);
         }
         $data = $request->except('api_token', 'image');
-        if ($request->hasFile('image')){
-            $data['image'] = $this->saveFile($request->image,"images/users")['name'];
+        if ($request->hasFile('image')) {
+            $data['image'] = $this->saveFile($request->image, "images/users")['name'];
         }
 
         $user = User::find(auth('api')->id());
-        if ($user){
+        if ($user) {
             $user->update($data);
             return response()->json([
                 "status" => true,
                 "msg" => __('updated successfully'),
             ]);
-        }else{
+        } else {
             return response()->json([
                 "status" => false,
                 "msg" => __("user not found"),
@@ -97,9 +107,10 @@ class AuthController extends Controller
     }
 
 
-    public function logout(){
+    public function logout()
+    {
         $user = auth('api')->user();
-        if ($user){
+        if ($user) {
             $user = User::find(auth('api')->id());
             $user->api_token = null;
             $user->save();
@@ -107,7 +118,7 @@ class AuthController extends Controller
                 "status" => true,
                 "msg" => __('logout successfully'),
             ]);
-        }else{
+        } else {
             return response()->json([
                 "status" => false,
                 "msg" => __("user not found"),
