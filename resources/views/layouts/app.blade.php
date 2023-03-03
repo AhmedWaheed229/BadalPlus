@@ -9,17 +9,19 @@
     <title>{{ $settings->name }}</title>
 
     <link rel="icon" type="image/png" href="{{asset($settings->icon_url)}}"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('js/slick/slick-theme.css')}}">
     <link rel="stylesheet" href="{{asset('js/slick/slick.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    @yield('css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     @if(app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{asset('css/style_ar.css')}}">
     @endif
 </head>
-<body>
+<body style="background-color: #eca9001a;">
 <!-- start navbar-->
 <nav class="navbar navbar-expand-lg">
     <div class="container">
@@ -30,7 +32,7 @@
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
             <img src="{{asset('images/bars.webp')}}" alt="Badal Plus"
-                 style="height: 25px; width: 25px; object-fit: contain">
+                style="height: 25px; width: 25px; object-fit: contain">
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav @if(app()->getLocale() == 'ar') me-auto @else ms-auto @endif mb-2 mb-lg-0">
@@ -158,6 +160,7 @@
 <script src="{{asset('js/wow.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 
 <script src="{{asset('service-worker.js')}}"></script>

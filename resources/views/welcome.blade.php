@@ -3,75 +3,8 @@
 @section('content')
 
 
-    <!--  start answering  -->
-    <section class="answering">
-        <div class="container">
-            <div class="answering-heading text-center wow fadeInUp" data-wow-delay=".3s">
-                <p>{{ __('needs') }}</p>
-                <h3>
-                    {{ __('answering all the questions will help you to find what you need') }}
-                </h3>
-            </div>
-
-            <form class="row" action="{{route("browse")}}">
-                <div class="col-md-4">
-                    <div class="answering-list wow fadeInUp" data-wow-delay=".5s">
-                        <ul>
-                            <li>{{ __('who you are?') }}</li>
-                        </ul>
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option value="">{{ __('choose') . ' ' . __('who you are?') }}</option>
-                                <option value="">{{ __('buyer') }}</option>
-                                <option value="">{{ __('seller') }}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="answering-list wow fadeInUp" data-wow-delay=".7s">
-                        <ul>
-                            <li>{{ __('what is the service you prefer?') }}</li>
-                        </ul>
-                        <div class="form-group">
-                            <select class="form-control" name="category">
-                                <option value="">{{ __('choose') . ' ' . __('service') }}</option>
-                                @foreach ($main_categories as $c)
-                                    <option value="{{ $c->id }}">{{ $c->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="answering-list wow fadeInUp" data-wow-delay="1s">
-                        <ul>
-                            <li>{{ __("what is the currency?") }}</li>
-                        </ul>
-                        <div class="form-group">
-                            <select class="form-control" name="currency">
-                                <option value="">{{ __('choose') . ' ' . __('currency') }}</option>
-                                @foreach ($currencies as $c)
-                                    <option value="{{ $c->id }}">{{ $c->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay=".3s">
-                    <button type="submit" class="btn btn-default browse">{{ __('browse') }}</a>
-                </div>
-            </form>
-        </div>
-    </section>
-    <!--  end answering  -->
-
         <!-- start welcome section-->
-    <section class="welcome-section">
+    <section class="welcome-section p-5">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-6">
@@ -84,25 +17,71 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-md-6 answering rounded-4">
+                    <form> 
+                        <div class="change-btn">
+                            <div class="active">Buy</div>
+                            <div>Sell</div>
+                        </div>
 
-                <div class="col-md-6">
-                    <div class="welcome-slider wow fadeInUp" data-wow-delay="0.5s">
-                        @foreach($slides as $slide)
-                            <div class="welcome-slider-item">
-                                <div class="item-header justify-content-between align-items-center d-flex">
-                                    <div class="icon">
-                                        <img src="{{$slide->icon_url}}" alt="">
-                                    </div>
-                                    <h5>{{$slide->title}}</h5>
-                                </div>
-                                <ul>
-                                    @foreach($slide->lists as $list)
-                                        <li>{{$list->content}}</li>
-                                    @endforeach
-                                </ul>
+                        <div class="dropdown dropdown-1">
+                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span><img width="25px"  src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets. Socialmedia, Games</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                            </ul>
+                            <div class="currency">
+                                <span>1 BTC  =</span><span>24,566.26 USD</span><i class="fa-sharp fa-solid fa-arrow-trend-up"></i>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+
+                        <div class="dropdown dropdown-2">
+                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{asset('images/pay-with.png')}}" width="90%" alt="">
+                            </a>
+                            <ul class="dropdown-menu" data-popper-placement="bottom-start">
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                            </ul>
+                            <div class="currency">
+                                <span>Pay with</span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="dropdown dropdown-3 dropdown-show">
+                            <h1></h1>
+                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Show All
+                            </a>
+                            <ul class="dropdown-menu" data-popper-placement="bottom-start">
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div class="dropdown dropdown-4 dropdown-show">
+                            <h2>I want to spend</h2>
+                            <h1></h1>
+                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                EGP
+                            </a>
+                            <ul class="dropdown-menu" data-popper-placement="bottom-start">
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                            </ul>
+                            <h3 class="pos">Minimum: 10 EGP</h3>
+                        </div>
+
+                        <button type="submit" class="form-btn">Find Offers</button>
+                    </form>
                 </div>
             </div>
         </div>
