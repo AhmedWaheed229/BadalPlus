@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.11
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 06, 2023 at 09:59 PM
--- Server version: 5.7.33
--- PHP Version: 7.4.19
+-- Generation Time: Mar 03, 2023 at 06:27 PM
+-- Server version: 10.3.38-MariaDB-log-cll-lve
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `badal_plus`
+-- Database: `badartsn_demo`
 --
 
 -- --------------------------------------------------------
@@ -29,12 +30,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT '0',
-  `active` tinyint(1) NOT NULL DEFAULT '1',
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `percent` float(10,2) NOT NULL DEFAULT '0.00',
+  `name_ar` varchar(255) NOT NULL,
+  `name_en` varchar(255) NOT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
+  `image` varchar(255) DEFAULT NULL,
+  `percent` float(10,2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -44,10 +45,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name_ar`, `name_en`, `parent_id`, `active`, `image`, `percent`, `created_at`, `updated_at`) VALUES
-(1, 'عملة مشفرة', 'Cryptocurrency', 0, 1, '1663177407.png', 0.00, NULL, '2022-09-14 15:43:27'),
-(2, 'حوالة مصرفية', 'Banks transfer', 0, 1, '1663177456.png', 0.00, '2022-09-14 15:17:59', '2022-09-14 15:44:16'),
-(3, 'التواصل الاجتماعي', 'Social media', 0, 1, '1663177500.png', 0.00, '2022-09-14 15:18:37', '2022-12-07 16:49:17'),
-(4, 'ألعاب على الانترنت', 'Online Games', 0, 1, '1663177557.png', 0.00, '2022-09-14 15:20:01', '2022-09-14 15:45:57'),
+(1, 'عملة مشفرة', 'Cryptocurrency', 0, 1, '5261676272847.png', 0.00, NULL, '2023-02-13 12:20:47'),
+(2, 'البنوك الماليه الألكترونيه', 'Online banks', 0, 1, '6441676273041.png', 0.00, '2022-09-14 15:17:59', '2023-02-13 12:26:44'),
+(3, 'حسابات التواصل الأجتماعي', 'Social media accounts', 0, 1, '5871676273260.png', 0.00, '2022-09-14 15:18:37', '2023-02-13 12:27:40'),
+(4, 'حسابات الألعاب الأونلاين', 'Online Games accounts', 0, 1, '2531676273336.png', 0.00, '2022-09-14 15:20:01', '2023-02-13 12:28:56'),
 (6, 'BTC', 'BTC', 1, 1, NULL, 3.00, '2022-09-14 15:47:41', '2022-12-05 16:50:24'),
 (7, 'USDT', 'USDT', 1, 1, NULL, 10.75, '2022-09-14 15:48:32', '2022-12-05 16:52:36'),
 (8, 'إيثريوم', 'Ethereum', 1, 1, NULL, 7.50, '2022-09-14 15:49:14', '2022-12-05 16:53:16'),
@@ -85,12 +86,12 @@ CREATE TABLE `ch_favorites` (
 
 CREATE TABLE `ch_messages` (
   `id` bigint(20) NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) NOT NULL,
   `from_id` bigint(20) NOT NULL,
   `to_id` bigint(20) NOT NULL,
-  `body` varchar(5000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `seen` tinyint(1) NOT NULL DEFAULT '0',
+  `body` varchar(5000) DEFAULT NULL,
+  `attachment` varchar(255) DEFAULT NULL,
+  `seen` tinyint(1) NOT NULL DEFAULT 0,
   `post_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -101,16 +102,53 @@ CREATE TABLE `ch_messages` (
 --
 
 INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment`, `seen`, `post_id`, `created_at`, `updated_at`) VALUES
+(-2120130361, 'user', 17, 14, 'Ggh', NULL, 1, 19, '2023-02-13 03:58:50', '2023-02-13 03:59:05'),
+(-2119802438, 'user', 17, 14, 'وصل؟', NULL, 1, 21, '2023-02-13 04:44:24', '2023-02-13 04:44:25'),
+(-2106319000, 'user', 17, 14, 'تمام', NULL, 1, 19, '2023-02-13 04:18:29', '2023-02-13 04:18:30'),
+(-2065370118, 'user', 17, 18, 'hold', NULL, 1, 30, '2023-02-16 05:36:33', '2023-02-16 05:36:42'),
+(-2065055838, 'user', 18, 17, 'Hello', NULL, 1, 29, '2023-02-16 05:33:00', '2023-02-16 05:33:05'),
+(-2053968446, 'user', 18, 17, 'release', NULL, 1, 30, '2023-02-16 05:36:57', '2023-02-16 05:36:58'),
+(-1991625050, 'user', 18, 14, 'Hello', NULL, 1, 26, '2023-02-16 05:20:22', '2023-02-16 05:28:29'),
+(-1978302655, 'user', 1, 18, 'hg', NULL, 0, 24, '2023-02-17 14:09:58', '2023-02-17 14:09:58'),
+(-1963496659, 'user', 14, 18, 'release', NULL, 1, 25, '2023-02-16 05:08:51', '2023-02-16 05:10:04'),
+(-1951582447, 'user', 17, 18, 'Hi', NULL, 1, 29, '2023-02-16 05:35:52', '2023-02-16 05:36:00'),
+(-1941728695, 'user', 18, 17, 'Hello', NULL, 1, 30, '2023-02-16 05:35:47', '2023-02-16 05:36:32'),
+(-1940359916, 'user', 14, 17, 'منين من الامرات', NULL, 1, 19, '2023-02-13 04:17:40', '2023-02-13 04:17:41'),
+(-1927225471, 'user', 14, 17, 'ف انتظارك', NULL, 1, 19, '2023-02-13 04:18:40', '2023-02-13 04:18:41'),
+(-1923333112, 'user', 14, 17, 'release', NULL, 1, 21, '2023-02-13 04:44:58', '2023-02-13 04:50:24'),
+(-1921472903, 'user', 17, 14, 'محتاج', NULL, 1, 19, '2023-02-13 04:17:49', '2023-02-13 04:17:50'),
+(-1918508698, 'user', 14, 18, 'hi', NULL, 1, 24, '2023-02-16 04:58:18', '2023-02-16 04:58:52'),
+(-1910925752, 'user', 1, 18, 'df', NULL, 0, 24, '2023-02-17 14:10:00', '2023-02-17 14:10:00'),
+(-1903408766, 'user', 17, 14, 'hold', NULL, 1, 22, '2023-02-15 10:07:23', '2023-02-15 10:07:24'),
+(-1901481275, 'user', 1, 16, 'a', NULL, 1, 18, '2023-02-13 00:14:53', '2023-02-13 00:16:08'),
+(-1891606258, 'user', 1, 14, 'zero one ahmed t w o', NULL, 1, 18, '2023-02-12 23:48:46', '2023-02-12 23:48:47'),
+(-1868982069, 'user', 17, 14, 'Hi', NULL, 1, 22, '2023-02-15 10:14:20', '2023-02-15 10:14:21'),
+(-1862223676, 'user', 18, 17, 'escrow', NULL, 1, 30, '2023-02-16 05:36:13', '2023-02-16 05:36:32'),
+(-1860758224, 'user', 17, 14, 'متاج تفوافض في السعر لو سمحت', NULL, 1, 19, '2023-02-13 04:17:46', '2023-02-13 04:17:47'),
+(-1829380682, 'user', 17, 14, 'صباح الخير\r\n\\', NULL, 1, 19, '2023-02-13 04:15:39', '2023-02-13 04:16:01'),
+(-1823525541, 'user', 1, 14, 'a', NULL, 1, 18, '2023-02-13 01:17:39', '2023-02-13 03:54:29'),
+(-1803390788, 'user', 17, 14, 'اهلا', NULL, 1, 20, '2023-02-15 00:38:22', '2023-02-15 07:24:56'),
+(-1746157045, 'user', 1, 16, 'hold', NULL, 1, 18, '2023-02-13 00:12:49', '2023-02-13 00:13:10'),
+(-1733355010, 'user', 17, 18, 'Hi', NULL, 1, 29, '2023-02-16 05:33:09', '2023-02-16 05:33:10'),
+(-1732833028, 'user', 14, 18, '1', NULL, 1, 25, '2023-02-16 05:04:49', '2023-02-16 05:05:03'),
+(-1718111787, 'user', 1, 14, 'hi', NULL, 1, 18, '2023-02-12 23:47:39', '2023-02-12 23:47:39'),
+(-1702355357, 'user', 18, 14, 'Email: TEST\r\nPassword: TEST', NULL, 1, 25, '2023-02-16 05:06:49', '2023-02-16 05:06:50'),
+(-1674212058, 'user', 17, 14, 'بحولك الفلوس', NULL, 1, 21, '2023-02-13 04:44:19', '2023-02-13 04:44:25'),
+(-1674113545, 'user', 17, 15, 'Hi', NULL, 0, 28, '2023-02-18 00:29:27', '2023-02-18 00:29:27'),
+(-1667420114, 'user', 18, 14, 'hold', NULL, 1, 25, '2023-02-16 05:07:52', '2023-02-16 05:07:53'),
+(-1629897348, 'user', 14, 17, 'hi do7do7🥰', NULL, 1, 21, '2023-02-13 04:41:53', '2023-02-13 04:41:59'),
 (1682659359, 'user', 2, 1, 'dsa', NULL, 1, 5, '2023-01-30 16:49:20', '2023-01-30 16:49:21'),
 (1683163227, 'user', 1, 2, 's', NULL, 1, 1, '2023-01-02 17:44:45', '2023-01-07 10:07:59'),
 (1684706913, 'user', 1, 2, 'dsa', NULL, 1, 5, '2023-01-30 16:50:18', '2023-01-30 16:50:18'),
 (1684961005, 'user', 1, 2, 'dsa', NULL, 1, 4, '2023-01-28 10:02:02', '2023-01-28 10:02:07'),
 (1686918621, 'user', 1, 2, '2', NULL, 1, 2, '2023-01-02 17:30:06', '2023-01-07 10:07:02'),
 (1688576764, 'user', 2, 1, 'das', NULL, 1, 5, '2023-01-28 11:21:09', '2023-01-28 11:21:10'),
+(1688704551, 'user', 14, 18, 'escrow', NULL, 1, 25, '2023-02-16 05:05:28', '2023-02-16 05:05:30'),
 (1694447842, 'user', 1, 3, 's', NULL, 0, 1, '2023-01-28 10:44:56', '2023-01-28 10:44:56'),
 (1694880206, 'user', 1, 2, '1', NULL, 1, 1, '2022-12-24 10:18:31', '2023-01-07 10:07:59'),
 (1695546737, 'user', 1, 2, 'hjk', NULL, 1, 5, '2023-01-30 17:04:16', '2023-01-30 17:04:33'),
 (1697158874, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-24 09:43:47', '2023-01-07 10:07:02'),
+(1697591902, 'user', 18, 14, 'Hello how can i help you?', NULL, 1, 24, '2023-02-16 04:59:04', '2023-02-16 04:59:05'),
 (1699437822, 'user', 1, 2, 'www', NULL, 1, 2, '2022-12-31 09:59:33', '2023-01-07 10:07:02'),
 (1700413076, 'user', 2, 1, 'hold', NULL, 1, 4, '2023-01-31 15:14:15', '2023-01-31 15:15:37'),
 (1701549328, 'user', 2, 1, 'sa', NULL, 1, 1, '2022-12-31 10:29:56', '2023-01-07 07:57:05'),
@@ -119,6 +157,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1705343595, 'user', 1, 3, 'dsa', NULL, 0, 1, '2023-01-28 10:50:19', '2023-01-28 10:50:19'),
 (1705876393, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-24 10:24:47', '2023-01-07 10:07:02'),
 (1706008443, 'user', 2, 1, 'sa', NULL, 1, 4, '2023-01-28 11:15:27', '2023-01-28 11:15:28'),
+(1707278168, 'user', 14, 17, 'escrow', NULL, 1, 22, '2023-02-15 10:06:50', '2023-02-15 10:07:10'),
 (1711981005, 'user', 2, 1, 'sa', NULL, 1, 4, '2023-01-30 16:45:27', '2023-01-30 16:45:28'),
 (1712657818, 'user', 1, 2, ',,,', NULL, 1, 5, '2023-01-30 17:04:56', '2023-01-30 17:04:59'),
 (1713084200, 'user', 1, 2, 'das', NULL, 1, 4, '2023-01-28 09:56:57', '2023-01-28 09:56:59'),
@@ -133,6 +172,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1736280219, 'user', 2, 1, 'dsa', NULL, 1, 5, '2023-01-28 12:09:29', '2023-01-28 12:09:30'),
 (1738207765, 'user', 2, 1, '2', NULL, 1, 2, '2022-12-31 10:21:34', '2023-01-07 07:57:08'),
 (1738752342, 'user', 2, 11, 'sa', NULL, 1, 4, '2023-01-28 09:53:35', '2023-01-28 09:53:36'),
+(1742505478, 'user', 14, 17, 'اخر الكلام والله يا صحبي', NULL, 1, 19, '2023-02-13 04:18:14', '2023-02-13 04:18:15'),
 (1743874662, 'user', 2, 1, 'sa', NULL, 1, 2, '2023-01-31 17:22:08', '2023-01-31 17:25:06'),
 (1743915864, 'user', 1, 2, 'dsa', NULL, 1, 15, '2023-02-06 19:01:42', '2023-02-06 19:01:58'),
 (1746531641, 'user', 1, 2, 'as', NULL, 1, 5, '2023-01-28 11:16:42', '2023-01-28 11:16:43'),
@@ -156,6 +196,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1783421394, 'user', 2, 1, 'يشس', NULL, 1, 4, '2023-01-28 12:43:14', '2023-01-28 12:43:15'),
 (1784509684, 'user', 2, 1, 'hold', NULL, 1, 4, '2023-01-31 15:02:10', '2023-01-31 15:02:12'),
 (1784672910, 'user', 2, 1, 'aa', NULL, 1, 1, '2023-01-31 17:22:12', '2023-01-31 17:27:13'),
+(1788276210, 'user', 14, 17, 'اه', NULL, 1, 21, '2023-02-13 04:44:32', '2023-02-13 04:44:33'),
 (1788419566, 'user', 11, 2, 'dsa', NULL, 1, 4, '2023-01-28 09:52:17', '2023-01-28 09:52:31'),
 (1791397039, 'user', 1, 2, 'post 2', NULL, 1, 2, '2022-12-31 09:44:31', '2023-01-07 10:07:02'),
 (1793538126, 'user', 1, 2, 'starting escrow', NULL, 1, 5, '2023-01-28 12:08:51', '2023-01-28 12:09:20'),
@@ -176,6 +217,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1823562896, 'user', 1, 2, 'sa', NULL, 1, 5, '2023-01-28 11:16:54', '2023-01-28 11:17:07'),
 (1823829837, 'user', 1, 2, 'as', NULL, 1, 2, '2023-01-31 17:27:09', '2023-01-31 17:27:28'),
 (1824316373, 'user', 1, 2, 'dsadas', NULL, 1, 1, '2022-12-24 10:49:02', '2023-01-07 10:07:59'),
+(1824432670, 'user', 14, 17, 'لو حابب تنفز اضغط علي سكرو', NULL, 1, 19, '2023-02-13 04:18:22', '2023-02-13 04:18:23'),
 (1826105924, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-31 09:56:04', '2023-01-07 10:07:02'),
 (1826427143, 'user', 1, 3, 'dsa', NULL, 0, 1, '2023-01-28 10:50:14', '2023-01-28 10:50:14'),
 (1826997141, 'user', 2, 1, 'asd', NULL, 1, 5, '2023-01-30 16:55:04', '2023-01-30 16:55:12'),
@@ -201,6 +243,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1852973842, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-24 10:24:32', '2023-01-07 10:07:02'),
 (1855995609, 'user', 1, 3, '2', NULL, 0, 2, '2023-01-02 18:15:36', '2023-01-02 18:15:36'),
 (1856793587, 'user', 1, 2, 'here', NULL, 1, 5, '2023-01-28 11:33:17', '2023-01-28 11:33:21'),
+(1857227178, 'user', 14, 17, 'تشرفنا', NULL, 1, 19, '2023-02-13 04:17:44', '2023-02-13 04:17:45'),
 (1859379820, 'user', 1, 2, 'asd', NULL, 1, 2, '2022-12-24 10:37:20', '2023-01-07 10:07:02'),
 (1859866509, 'user', 1, 2, 'das', NULL, 1, 2, '2023-01-28 10:52:32', '2023-01-28 10:58:23'),
 (1861133149, 'user', 1, 2, '1', NULL, 1, 1, '2022-12-24 10:26:03', '2023-01-07 10:07:59'),
@@ -227,9 +270,12 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1888610045, 'user', 2, 1, '2', NULL, 1, 2, '2022-12-24 11:34:37', '2023-01-07 07:57:08'),
 (1888938856, 'user', 1, 2, 'w', NULL, 1, 1, '2023-01-02 19:05:45', '2023-01-07 10:07:59'),
 (1889814335, 'user', 1, 2, '1', NULL, 1, 1, '2022-12-24 09:43:41', '2023-01-07 10:07:59'),
+(1891384511, 'user', 17, 14, 'هضغط', NULL, 1, 19, '2023-02-13 04:18:32', '2023-02-13 04:18:33'),
+(1893478416, 'user', 16, 1, 'escrow', NULL, 1, 18, '2023-02-13 00:12:30', '2023-02-13 00:12:34'),
 (1896593956, 'user', 2, 1, 'sa', NULL, 1, 1, '2023-01-02 17:54:20', '2023-01-07 07:57:05'),
 (1897430822, 'user', 2, 1, 'يشس', NULL, 1, 2, '2022-12-31 09:32:23', '2023-01-07 07:57:08'),
 (1898247089, 'user', 1, 2, 'ss', NULL, 1, 5, '2023-01-30 16:55:25', '2023-01-30 16:55:28'),
+(1903500198, 'user', 14, 17, 'escrow', NULL, 1, 21, '2023-02-13 04:42:10', '2023-02-13 04:42:10'),
 (1903637254, 'user', 2, 1, 'hold', NULL, 1, 14, '2023-02-06 19:05:46', '2023-02-06 19:05:50'),
 (1905347232, 'user', 2, 1, 'das', NULL, 1, 2, '2022-12-24 11:39:35', '2023-01-07 07:57:08'),
 (1905857299, 'user', 1, 3, 'das', NULL, 0, 2, '2023-01-28 11:04:24', '2023-01-28 11:04:24'),
@@ -262,6 +308,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1945167299, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-31 10:30:39', '2023-01-07 10:07:02'),
 (1945364559, 'user', 2, 1, '2', NULL, 1, 2, '2022-12-31 10:22:54', '2023-01-07 07:57:08'),
 (1945919478, 'user', 1, 2, 'dasdasd', NULL, 1, 2, '2022-12-31 09:59:26', '2023-01-07 10:07:02'),
+(1946564331, 'user', 14, 1, 'hi mr,soliman', NULL, 1, 18, '2023-02-12 23:47:31', '2023-02-12 23:47:35'),
 (1947625422, 'user', 1, 2, 'wla', NULL, 1, 1, '2022-12-24 10:28:08', '2023-01-07 10:07:59'),
 (1955225245, 'user', 1, 2, 'ss', NULL, 1, 1, '2023-01-28 08:05:01', '2023-01-28 08:05:02'),
 (1957687697, 'user', 1, 2, 'sa', NULL, 1, 1, '2022-12-31 09:04:49', '2023-01-07 10:07:59'),
@@ -270,10 +317,12 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1959316741, 'user', 1, 2, 'escrow', NULL, 1, 5, '2023-01-30 17:07:45', '2023-01-30 17:07:46'),
 (1959364354, 'user', 2, 1, 'يشسيشس', NULL, 1, 1, '2022-12-31 09:32:14', '2023-01-07 07:57:05'),
 (1960975562, 'user', 2, 1, 'post 1', NULL, 1, 1, '2022-12-31 09:44:58', '2023-01-07 07:57:05'),
+(1962963107, 'user', 15, 17, 'hi', NULL, 1, 29, '2023-02-17 00:54:50', '2023-02-20 20:46:27'),
 (1966049842, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-24 09:35:04', '2023-01-07 10:07:02'),
 (1970261860, 'user', 1, 2, 'jj', NULL, 1, 5, '2023-01-30 17:06:03', '2023-01-30 17:06:14'),
 (1971866195, 'user', 2, 1, '1', NULL, 1, 1, '2022-12-24 09:38:16', '2023-01-07 07:57:05'),
 (1971976484, 'user', 1, 2, '1', NULL, 1, 2, '2022-12-31 09:36:34', '2023-01-07 10:07:02'),
+(1974361425, 'user', 18, 14, 'Hello', NULL, 1, 25, '2023-02-16 05:05:09', '2023-02-16 05:05:10'),
 (1975752886, 'user', 1, 2, 'dsa', NULL, 1, 5, '2023-01-30 16:50:33', '2023-01-30 16:50:35'),
 (1979821674, 'user', 2, 1, 'ds', NULL, 1, 4, '2023-01-30 17:49:09', '2023-01-30 17:49:10'),
 (1982245013, 'user', 1, 2, 'das', NULL, 1, 5, '2023-01-28 11:16:34', '2023-01-28 11:16:36'),
@@ -282,6 +331,8 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (1986965271, 'user', 2, 1, 'post 2', NULL, 1, 2, '2022-12-31 09:45:26', '2023-01-07 07:57:08'),
 (1987120410, 'user', 1, 2, 'sas', NULL, 1, 2, '2022-12-31 10:29:46', '2023-01-07 10:07:02'),
 (1990005938, 'user', 2, 1, 'das', NULL, 1, 5, '2023-01-28 11:08:38', '2023-01-28 11:08:42'),
+(1990940550, 'user', 17, 14, 'hold', NULL, 1, 21, '2023-02-13 04:44:33', '2023-02-13 04:44:34'),
+(1991824737, 'user', 1, 14, 'dssd', NULL, 1, 18, '2023-02-12 23:47:59', '2023-02-12 23:48:07'),
 (1994708606, 'user', 11, 2, 'das', NULL, 1, 5, '2023-01-28 09:22:47', '2023-01-28 09:23:05'),
 (1997127962, 'user', 1, 2, 'asd', NULL, 1, 1, '2022-12-24 10:27:53', '2023-01-07 10:07:59'),
 (1997665603, 'user', 2, 1, 'fds', NULL, 1, 2, '2023-01-07 10:07:33', '2023-01-07 10:07:45'),
@@ -302,6 +353,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (2018458269, 'user', 1, 2, 's', NULL, 1, 1, '2023-01-28 10:52:03', '2023-01-28 10:52:07'),
 (2019097293, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-31 10:34:14', '2023-01-07 10:07:02'),
 (2020398822, 'user', 1, 2, 'شس', NULL, 1, 5, '2023-01-28 12:42:42', '2023-01-28 12:42:43'),
+(2021648525, 'user', 14, 17, 'للل', NULL, 1, 21, '2023-02-13 04:45:29', '2023-02-13 04:50:24'),
 (2022980511, 'user', 2, 1, 's', NULL, 1, 5, '2023-01-30 17:08:56', '2023-01-30 17:08:57'),
 (2023273808, 'user', 1, 2, 's', NULL, 1, 1, '2022-12-31 10:29:40', '2023-01-07 10:07:59'),
 (2023585502, 'user', 2, 1, 'd', NULL, 1, 5, '2023-01-30 16:52:15', '2023-01-30 16:52:40'),
@@ -326,6 +378,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (2059656377, 'user', 1, 2, '1', NULL, 1, 1, '2022-12-31 09:55:55', '2023-01-07 10:07:59'),
 (2060323603, 'user', 2, 1, 'ads', NULL, 1, 4, '2023-01-28 15:57:30', '2023-01-28 15:59:18'),
 (2062440748, 'user', 2, 1, 'dsa', NULL, 1, 2, '2023-01-07 10:07:40', '2023-01-07 10:07:45'),
+(2062528719, 'user', 1, 2, 's', NULL, 0, 14, '2023-02-12 23:46:39', '2023-02-12 23:46:39'),
 (2064784743, 'user', 1, 3, 'd', NULL, 0, 2, '2023-01-28 10:57:27', '2023-01-28 10:57:27'),
 (2066670072, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-31 10:28:40', '2023-01-07 10:07:02'),
 (2067474046, 'user', 1, 3, 'd', NULL, 0, 2, '2023-01-28 11:04:02', '2023-01-28 11:04:02'),
@@ -349,19 +402,23 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (2092993453, 'user', 1, 2, 'starting escrow', NULL, 1, 5, '2023-01-28 12:08:00', '2023-01-28 12:08:01'),
 (2093491590, 'user', 1, 2, 'sss', NULL, 1, 1, '2022-12-24 10:27:37', '2023-01-07 10:07:59'),
 (2093793203, 'user', 2, 1, 'kjk', NULL, 1, 5, '2023-01-30 17:04:26', '2023-01-30 17:04:33'),
+(2093877606, 'user', 17, 14, 'Hi', NULL, 1, 19, '2023-02-13 03:58:04', '2023-02-13 03:59:05'),
 (2094610816, 'user', 1, 3, 'das', NULL, 0, 1, '2023-01-28 10:52:27', '2023-01-28 10:52:27'),
 (2095196298, 'user', 2, 1, 'sa', NULL, 1, 1, '2023-01-28 08:15:36', '2023-01-28 08:15:37'),
 (2097773025, 'user', 2, 1, 'سيش', NULL, 1, 4, '2023-01-28 12:43:43', '2023-01-28 12:43:44'),
 (2098805138, 'user', 1, 3, 'ولا لاولا', NULL, 0, 1, '2023-01-28 10:45:04', '2023-01-28 10:45:04'),
 (2101321337, 'user', 1, 2, '2', NULL, 1, 2, '2022-12-24 11:04:42', '2023-01-07 10:07:02'),
 (2102017082, 'user', 1, 2, 'fsd', NULL, 1, 1, '2022-12-24 11:02:27', '2023-01-07 10:07:59'),
+(2103504731, 'user', 14, 17, 'كان علي عيني', NULL, 1, 19, '2023-02-13 04:17:59', '2023-02-13 04:18:00'),
 (2104497572, 'user', 1, 2, 'asd', NULL, 1, 1, '2023-01-28 08:17:29', '2023-01-28 08:17:30'),
+(2105384592, 'user', 14, 17, 'صباح النور', NULL, 1, 19, '2023-02-13 04:16:12', '2023-02-13 04:16:13'),
 (2107068937, 'user', 2, 1, 'dsa', NULL, 1, 5, '2023-01-30 16:50:23', '2023-01-30 16:50:24'),
 (2108461208, 'user', 2, 1, 'hold', NULL, 1, 4, '2023-01-31 15:09:09', '2023-01-31 15:09:10'),
 (2108873303, 'user', 2, 1, 'dsa', NULL, 1, 1, '2023-01-28 09:54:38', '2023-01-28 09:54:43'),
 (2113262922, 'user', 2, 1, '1', NULL, 1, 2, '2022-12-31 09:33:18', '2023-01-07 07:57:08'),
 (2113734084, 'user', 1, 2, 'release', NULL, 1, 14, '2023-02-06 19:05:53', '2023-02-06 19:05:54'),
 (2114300870, 'user', 1, 3, 'a', NULL, 0, 2, '2023-01-28 11:05:41', '2023-01-28 11:05:41'),
+(2115777042, 'user', 18, 15, 'hello', NULL, 1, 28, '2023-02-16 05:29:06', '2023-02-16 05:29:30'),
 (2120025482, 'user', 1, 2, 'das', NULL, 1, 15, '2023-02-06 19:03:54', '2023-02-06 19:03:56'),
 (2120566737, 'user', 2, 1, 'post 1', NULL, 1, 1, '2022-12-31 09:45:35', '2023-01-07 07:57:05'),
 (2120741423, 'user', 1, 2, 'as', NULL, 1, 1, '2023-01-28 10:52:21', '2023-01-28 10:52:45'),
@@ -583,7 +640,8 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (2499023699, 'user', 2, 1, 'as', NULL, 1, 1, '2023-01-28 08:00:14', '2023-01-28 08:00:15'),
 (2499062754, 'user', 2, 1, 's', NULL, 1, 5, '2023-01-30 17:14:28', '2023-01-30 17:14:30'),
 (2500375815, 'user', 2, 1, '1', NULL, 1, 1, '2022-12-24 10:24:03', '2023-01-07 07:57:05'),
-(2506177918, 'user', 1, 2, 'qq', NULL, 1, 1, '2022-12-31 09:59:56', '2023-01-07 10:07:59'),
+(2506177918, 'user', 1, 2, 'qq', NULL, 1, 1, '2022-12-31 09:59:56', '2023-01-07 10:07:59');
+INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment`, `seen`, `post_id`, `created_at`, `updated_at`) VALUES
 (2506604809, 'user', 2, 1, '2', NULL, 1, 2, '2022-12-24 09:43:16', '2023-01-07 07:57:08'),
 (2508689272, 'user', 1, 2, 'السلام عليكم ؟', NULL, 1, 5, '2023-01-10 16:37:00', '2023-01-28 07:18:50'),
 (2509905097, 'user', 2, 1, 'a', NULL, 1, 5, '2023-01-30 17:14:11', '2023-01-30 17:14:11'),
@@ -643,8 +701,7 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 (2618128474, 'user', 2, 1, 'sad', NULL, 1, 4, '2023-01-28 16:01:58', '2023-01-28 16:02:54'),
 (2622716940, 'user', 1, 2, 'post 1', NULL, 1, 1, '2022-12-31 10:25:34', '2023-01-07 10:07:59'),
 (2627115174, 'user', 2, 1, 'hhh', NULL, 1, 5, '2023-01-30 17:05:58', '2023-01-30 17:06:01'),
-(2627196676, 'user', 2, 1, '1', NULL, 1, 1, '2022-12-24 09:34:14', '2023-01-07 07:57:05');
-INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment`, `seen`, `post_id`, `created_at`, `updated_at`) VALUES
+(2627196676, 'user', 2, 1, '1', NULL, 1, 1, '2022-12-24 09:34:14', '2023-01-07 07:57:05'),
 (2628870044, 'user', 1, 2, 'starting escrow', NULL, 1, 5, '2023-01-28 12:33:26', '2023-01-28 12:33:27'),
 (2631339059, 'user', 1, 2, 'post 1', NULL, 1, 1, '2022-12-31 10:23:14', '2023-01-07 10:07:59'),
 (2631398002, 'user', 1, 2, 'sa', NULL, 1, 1, '2023-01-31 17:27:45', '2023-01-31 17:48:03'),
@@ -688,10 +745,10 @@ INSERT INTO `ch_messages` (`id`, `type`, `from_id`, `to_id`, `body`, `attachment
 
 CREATE TABLE `currencies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name_ar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name_ar` varchar(255) NOT NULL,
+  `name_en` varchar(255) NOT NULL,
   `rate` double(8,2) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -715,12 +772,12 @@ INSERT INTO `currencies` (`id`, `name_ar`, `name_en`, `rate`, `active`, `deleted
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -731,7 +788,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -766,8 +823,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -777,7 +834,7 @@ CREATE TABLE `password_resets` (
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 ('test@test.com', '$2y$10$bP8Wr4Ry8zysFk3LZYKe2.H9sjTwLnXY7sWZRepoNSSOn7wa./Ye2', '2023-01-21 10:53:51'),
-('soli.edh4an@gmail.com', '$2y$10$3fdzFk15WgBm7VvStLuOBuh/Xo.h2BWOasHk01Uz7/Ib3Ff1TbyRW', '2023-01-28 07:09:53');
+('soli.edh4an@gmail.com', '$2y$10$vGG6ae2zJwRkmzx4/Ve1Ee2MsEHLO6Mjwx.nuQubeJ8ECUoT9Ejnu', '2023-02-18 16:10:55');
 
 -- --------------------------------------------------------
 
@@ -787,11 +844,11 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -806,15 +863,15 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
   `price` double(8,2) NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `category_id` int(11) NOT NULL,
   `currency_id` int(11) NOT NULL,
   `created_by` int(11) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '0',
-  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `active` tinyint(1) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -828,7 +885,23 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `title`, `price`, `image`, `description`, `category_id`, `currency_id`, `created_by`, `active`, `status`, `deleted_at`, `created_at`, `updated_at`, `bought_at`, `bought_by`) VALUES
 (14, 'post 1', 100.00, '8431675716923.jpg', 'description', 14, 2, 2, 1, 0, NULL, '2023-02-06 18:55:23', '2023-02-06 18:56:02', '2023-02-06 19:05:53', 1),
-(15, 'post 2', 100.00, '9221675717101.jpg', 'sasa', 17, 1, 2, 1, 0, NULL, '2023-02-06 18:58:21', '2023-02-06 18:59:04', '2023-02-06 19:04:03', 1);
+(15, 'post 2', 100.00, '9221675717101.jpg', 'sasa', 17, 1, 2, 1, 0, NULL, '2023-02-06 18:58:21', '2023-02-06 18:59:04', '2023-02-06 19:04:03', 1),
+(16, 'post 1', 100.00, '7761676227372.jpg', 'description goes here', 6, 1, 1, 1, 1, NULL, '2023-02-12 23:42:52', '2023-02-12 23:43:12', NULL, NULL),
+(17, 'post 2', 100.00, '7501676227429.jpg', 'fs sfds', 13, 4, 1, 1, 1, NULL, '2023-02-12 23:43:49', '2023-02-12 23:44:12', NULL, NULL),
+(18, 'title post', 200.00, '2261676227528.jpg', 'dadas asd as', 16, 1, 1, 1, 1, NULL, '2023-02-12 23:45:28', '2023-02-12 23:45:45', NULL, NULL),
+(19, '100k subscribers YT channel', 2000.00, '3621676242312.jpeg', 'yt', 13, 1, 14, 1, 1, NULL, '2023-02-13 03:51:52', '2023-02-13 03:52:17', NULL, NULL),
+(20, 'do7a', 9000.00, '4021676242931.jpeg', 'hhhh', 6, 2, 14, 1, 1, NULL, '2023-02-13 04:02:11', '2023-02-13 04:02:32', NULL, NULL),
+(21, 'youtube', 1000.00, '7441676245111.png', 'sdfkihjs', 13, 2, 17, 1, 0, NULL, '2023-02-13 04:38:31', '2023-02-13 04:38:55', '2023-02-13 04:44:58', 14),
+(22, 'Sell 2000usdt price 32,5 egp', 32.00, '3941676402034.jpeg', '2200$ usdt', 7, 1, 17, 1, 1, NULL, '2023-02-15 00:13:54', '2023-02-15 09:57:59', NULL, NULL),
+(23, 'Crypto 2000$', 2000.00, '2061676436382.jpeg', '2000$', 7, 2, 17, 2, 1, NULL, '2023-02-15 09:46:22', '2023-02-16 04:57:08', NULL, NULL),
+(24, 'YouTube Channel for Sale', 10000.00, '2161676505357.jpg', 'TEST', 13, 2, 18, 1, 1, NULL, '2023-02-16 04:55:57', '2023-02-16 04:57:16', NULL, NULL),
+(25, 'Instagram for Sale', 500.00, '1941676505806.jpg', 'TEST', 14, 1, 18, 1, 0, NULL, '2023-02-16 05:03:26', '2023-02-16 05:03:44', '2023-02-16 05:08:51', 14),
+(26, 'aa', 38000.00, '3141676506668.png', 'aaa', 6, 2, 14, 1, 1, NULL, '2023-02-16 05:17:48', '2023-02-16 05:18:01', NULL, NULL),
+(27, '1111', 5500.00, '5641676507011.png', '121', 13, 1, 14, 1, 1, NULL, '2023-02-16 05:23:31', '2023-02-16 05:23:39', NULL, NULL),
+(28, 'oo', 38000.00, '7741676507244.png', 'oo', 6, 2, 15, 1, 1, NULL, '2023-02-16 05:27:24', '2023-02-16 05:28:03', NULL, NULL),
+(29, 'Crypto', 5000.00, '7031676507479.jpeg', 'Btc', 6, 1, 17, 1, 1, NULL, '2023-02-16 05:31:19', '2023-02-16 05:32:30', NULL, NULL),
+(30, 'Btc', 500.00, '7341676507663.jpeg', 'Trx', 6, 1, 17, 1, 0, NULL, '2023-02-16 05:34:23', '2023-02-16 05:34:39', '2023-02-16 05:36:57', 18),
+(31, 'Gxhs', 5000.00, '5891676653441.jpeg', 'Usus', 16, 2, 17, 0, 1, NULL, '2023-02-17 22:04:01', '2023-02-17 22:04:01', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -841,11 +914,11 @@ CREATE TABLE `post_user` (
   `post_id` bigint(20) NOT NULL,
   `status` enum('escrow','hold','release') NOT NULL,
   `price` float(10,2) NOT NULL,
-  `currency_id` int(11) NOT NULL DEFAULT '1',
+  `currency_id` int(11) NOT NULL DEFAULT 1,
   `currency_rate` float(10,2) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `post_user`
@@ -853,7 +926,12 @@ CREATE TABLE `post_user` (
 
 INSERT INTO `post_user` (`user_id`, `post_id`, `status`, `price`, `currency_id`, `currency_rate`, `created_at`, `updated_at`) VALUES
 (1, 15, 'release', 100.00, 1, 1.00, '2023-02-06 21:02:23', '2023-02-06 21:02:23'),
-(1, 14, 'release', 14.29, 1, 1.00, '2023-02-06 21:05:35', '2023-02-06 21:05:35');
+(1, 14, 'release', 14.29, 1, 1.00, '2023-02-06 21:05:35', '2023-02-06 21:05:35'),
+(16, 18, 'hold', 200.00, 1, 1.00, '2023-02-12 19:12:30', '2023-02-12 19:12:30'),
+(14, 21, 'release', 142.86, 1, 1.00, '2023-02-12 23:42:10', '2023-02-12 23:42:10'),
+(14, 22, 'hold', 32.00, 1, 1.00, '2023-02-15 05:06:50', '2023-02-15 05:06:50'),
+(14, 25, 'release', 500.00, 1, 1.00, '2023-02-16 00:05:28', '2023-02-16 00:05:28'),
+(18, 30, 'release', 500.00, 1, 1.00, '2023-02-16 00:36:13', '2023-02-16 00:36:13');
 
 -- --------------------------------------------------------
 
@@ -871,18 +949,21 @@ CREATE TABLE `recharge_requests` (
   `admin_id` int(11) DEFAULT NULL,
   `img` varchar(255) DEFAULT NULL,
   `accept_date` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `status` enum('pending','refused','confirmed') NOT NULL DEFAULT 'pending',
   `number` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `recharge_requests`
 --
 
 INSERT INTO `recharge_requests` (`id`, `user_id`, `amount`, `accepted_amount`, `currency_id`, `currency_rate`, `admin_id`, `img`, `accept_date`, `created_at`, `updated_at`, `status`, `number`) VALUES
-(4, 2, 100.0000, 100.0000, 1, 1.0000, 1, '7591675717827.png', '2023-02-06 19:13:53', '2023-02-06 19:10:27', '2023-02-06 21:10:27', 'confirmed', '56546');
+(4, 2, 100.0000, 100.0000, 1, 1.0000, 1, '7591675717827.png', '2023-02-06 19:13:53', '2023-02-06 19:10:27', '2023-02-06 21:10:27', 'confirmed', '56546'),
+(5, 1, 200.0000, NULL, 1, 1.0000, NULL, '1621676227490.png', NULL, '2023-02-12 23:44:50', '2023-02-12 18:44:50', 'pending', '1099271550'),
+(6, 18, 500.0000, 500.0000, 1, 1.0000, 14, '3271676507663.jpg', '2023-02-16 05:35:13', '2023-02-16 05:34:23', '2023-02-16 00:34:23', 'confirmed', '86697696'),
+(7, 14, 565.0000, 565.0000, 1, 1.0000, 14, '8401676511530.png', '2023-02-16 06:39:34', '2023-02-16 06:38:50', '2023-02-16 01:38:50', 'confirmed', '695');
 
 -- --------------------------------------------------------
 
@@ -892,17 +973,17 @@ INSERT INTO `recharge_requests` (`id`, `user_id`, `amount`, `accepted_amount`, `
 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name_ar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name_en` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `logo_ar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'logo_ar.png',
-  `logo_en` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'logo_en.png',
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'icon.png',
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address_ar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address_en` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content_ar` text COLLATE utf8mb4_unicode_ci,
-  `content_en` text COLLATE utf8mb4_unicode_ci,
+  `name_ar` varchar(255) DEFAULT NULL,
+  `name_en` varchar(255) DEFAULT NULL,
+  `logo_ar` varchar(255) DEFAULT 'logo_ar.png',
+  `logo_en` varchar(255) DEFAULT 'logo_en.png',
+  `icon` varchar(255) DEFAULT 'icon.png',
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address_ar` varchar(255) DEFAULT NULL,
+  `address_en` varchar(255) DEFAULT NULL,
+  `content_ar` text DEFAULT NULL,
+  `content_en` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -912,7 +993,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `name_ar`, `name_en`, `logo_ar`, `logo_en`, `icon`, `phone`, `email`, `address_ar`, `address_en`, `content_ar`, `content_en`, `created_at`, `updated_at`) VALUES
-(1, 'بادال بلس', 'Badal Plus', '5121665523910.png', '5861665523541.png', '8211665523542.png', '+20101235772', 'Badalplus@gmail.com', 'test', 'test', 'test', 'test', NULL, '2022-10-11 19:31:50');
+(1, 'بدل بلس', 'Badal Plus', '6271676867149.png', '6131676867149.png', '9741676867149.png', NULL, 'admin@badalplus.com', 'test', 'test', 'test', 'test', NULL, '2023-02-20 10:53:39');
 
 -- --------------------------------------------------------
 
@@ -922,10 +1003,10 @@ INSERT INTO `settings` (`id`, `name_ar`, `name_en`, `logo_ar`, `logo_en`, `icon`
 
 CREATE TABLE `slides` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `icon` varchar(255) NOT NULL,
+  `title_ar` text NOT NULL,
+  `title_en` text NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -935,8 +1016,10 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`id`, `icon`, `title_ar`, `title_en`, `active`, `created_at`, `updated_at`) VALUES
-(2, '1663093545.jpg', 'شراء أو بيع لعبتك بأمان وثقة', 'Buy or sell your game safely and confidently', 1, '2022-09-13 16:25:45', '2022-09-20 15:22:52'),
-(3, '1663694858.png', 'قم بشراء أو بيع قناة الوسائط الاجتماعية الخاصة بك بأمان وثقة', 'Buy or sell your social media chanel safely and confidently', 1, '2022-09-20 15:27:39', '2022-09-20 15:27:39');
+(2, '7681676357813.jpg', 'حسابات الألعاب الأونلاين', 'Online games account', 1, '2022-09-13 16:25:45', '2023-02-16 08:26:55'),
+(3, '6821676358812.png', 'قم بشراء أو بيع قناة الوسائط الاجتماعية الخاصة بك بأمان وثقة', 'Buy or sell your social media chanel safely and confidently', 1, '2022-09-20 15:27:39', '2023-02-14 12:13:32'),
+(4, '1981676517345.png', 'البنوك الألكترونيه', 'Online Banks', 1, '2023-02-16 08:15:45', '2023-02-16 08:15:45'),
+(5, '6381676517665.png', 'العملات الرقميه', 'Cryptocurrency', 1, '2023-02-16 08:21:05', '2023-02-16 08:21:05');
 
 -- --------------------------------------------------------
 
@@ -947,9 +1030,9 @@ INSERT INTO `slides` (`id`, `icon`, `title_ar`, `title_en`, `active`, `created_a
 CREATE TABLE `slide_lists` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `slide_id` int(11) NOT NULL,
-  `content_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `content_ar` text NOT NULL,
+  `content_en` text NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -959,14 +1042,21 @@ CREATE TABLE `slide_lists` (
 --
 
 INSERT INTO `slide_lists` (`id`, `slide_id`, `content_ar`, `content_en`, `active`, `created_at`, `updated_at`) VALUES
-(1, 2, 'يتفق المشتري والبائع على الجدول الزمني', 'Buyer and seller agree on schedule', 1, '2022-09-13 17:01:49', '2022-09-20 15:23:50'),
-(2, 2, 'يدفع المشتري badal plus', 'Buyer pays badal plus', 1, '2022-09-13 17:07:55', '2022-09-20 15:24:29'),
-(3, 2, 'نقل للبائع', 'Seller transfer', 1, '2022-09-20 15:25:07', '2022-09-20 15:25:07'),
-(4, 2, 'badal plus يدفع للبائع', 'badal plus pays the seller', 1, '2022-09-20 15:25:56', '2022-09-20 15:25:56'),
-(5, 3, 'يتفق المشتري والبائع على الجدول الزمني', 'Buyer and seller agree on schedule', 1, '2022-09-13 17:01:49', '2022-09-20 15:23:50'),
-(6, 3, 'يدفع المشتري badal plus', 'Buyer pays badal plus', 1, '2022-09-13 17:07:55', '2022-09-20 15:24:29'),
-(7, 3, 'نقل للبائع', 'Seller transfer', 1, '2022-09-20 15:25:07', '2022-09-20 15:25:07'),
-(8, 3, 'badal plus يدفع للبائع', 'badal plus pays the seller', 1, '2022-09-20 15:25:56', '2022-09-20 15:25:56');
+(1, 2, 'يتفق المشتري والبائع على الجدول الزمني', 'The buyer and seller should agree on the terms', 1, '2022-09-13 17:01:49', '2023-02-16 08:38:45'),
+(2, 2, 'يدفع المشتري badal plus', 'Buyer pays into an escrow badalplus', 1, '2022-09-13 17:07:55', '2023-02-16 08:29:30'),
+(3, 2, 'نقل للبائع', 'Seller transfers ownership of the game account', 1, '2022-09-20 15:25:07', '2023-02-16 08:30:51'),
+(4, 2, 'badal plus يدفع للبائع', 'Buyer confirms ownership Once the buyer confirms ownership', 1, '2022-09-20 15:25:56', '2023-02-16 08:35:16'),
+(5, 3, 'يتفق المشتري والبائع على الجدول الزمني', 'Buyer and seller agree on terms', 1, '2022-09-13 17:01:49', '2023-02-16 08:41:01'),
+(6, 3, 'يدفع المشتري badal plus', 'Buyer pays into an escrow badalplus', 1, '2022-09-13 17:07:55', '2023-02-16 08:41:30'),
+(7, 3, 'نقل للبائع', 'Seller transfers ownership of the youtube channel in (7) days', 1, '2022-09-20 15:25:07', '2023-02-16 08:42:45'),
+(8, 3, 'badal plus يدفع للبائع', 'Buyer confirms ownership once the buyer confirms ownership', 1, '2022-09-20 15:25:56', '2023-02-16 08:43:54'),
+(9, 2, 'بدل بلس يدفع للبائع', 'BadalPlus releases payment to the seller', 1, '2023-02-16 08:37:38', '2023-02-16 08:37:38'),
+(10, 3, 'بدل', 'badalplus release payment to the seller', 1, '2023-02-16 08:46:35', '2023-02-16 08:46:35'),
+(11, 4, 'بدل', 'The buyer and seller should agree on the terms', 1, '2023-02-16 08:49:31', '2023-02-16 08:49:31'),
+(12, 4, 'بدل', 'Buyer pays into an escrow badalplus', 1, '2023-02-16 08:51:34', '2023-02-16 08:51:34'),
+(13, 4, 'بدل', 'seller pays to the bank method of the buyer', 1, '2023-02-16 08:56:24', '2023-02-16 08:56:24'),
+(14, 4, 'بدل', 'once the buyer confirm the payment', 1, '2023-02-16 08:58:05', '2023-02-16 08:58:05'),
+(15, 4, 'بدل', 'badalplus release the payment to the seller', 1, '2023-02-16 08:58:57', '2023-02-16 08:58:57');
 
 -- --------------------------------------------------------
 
@@ -976,39 +1066,59 @@ INSERT INTO `slide_lists` (`id`, `slide_id`, `content_ar`, `content_en`, `active
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `location` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `balance` decimal(20,4) NOT NULL DEFAULT '0.0000',
-  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `balance` decimal(20,4) NOT NULL DEFAULT 0.0000,
+  `active` tinyint(1) NOT NULL DEFAULT 0,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `api_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facebook` text COLLATE utf8mb4_unicode_ci,
-  `twitter` text COLLATE utf8mb4_unicode_ci,
-  `currency_id` int(11) NOT NULL DEFAULT '1',
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `api_token` varchar(255) DEFAULT NULL,
+  `facebook` text DEFAULT NULL,
+  `twitter` text DEFAULT NULL,
+  `currency_id` int(11) NOT NULL DEFAULT 1,
+  `remember_token` varchar(100) DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `active_status` tinyint(1) NOT NULL DEFAULT '0',
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'avatar.png',
-  `dark_mode` tinyint(1) NOT NULL DEFAULT '0',
-  `messenger_color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '#FBD540',
-  `admin` tinyint(1) NOT NULL DEFAULT '0'
+  `active_status` tinyint(1) NOT NULL DEFAULT 0,
+  `avatar` varchar(255) NOT NULL DEFAULT 'avatar.png',
+  `dark_mode` tinyint(1) NOT NULL DEFAULT 0,
+  `messenger_color` varchar(255) NOT NULL DEFAULT '#FBD540',
+  `admin` tinyint(1) NOT NULL DEFAULT 0,
+  `uid` char(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `image`, `location`, `balance`, `active`, `email_verified_at`, `password`, `api_token`, `facebook`, `twitter`, `currency_id`, `remember_token`, `deleted_at`, `created_at`, `updated_at`, `active_status`, `avatar`, `dark_mode`, `messenger_color`, `admin`) VALUES
-(1, 'soliman', 'mohamed', 'soli.edh4an@gmail.com', '01099271550', 'avatar.png', NULL, '502.3800', 1, NULL, '$2y$10$8UBagP6KNr2f6kCFRxkU/uzLKdgKePAau8uRnNweQI1iOrfVNGdAW', '9ax4RdqgF2aZ65fTIQYXZPWJsdG1dSBxcd2WSmDVO6O2bqWTmbWDwOXK6kzC', NULL, NULL, 1, 'RjLtuGJB3j1gkBeOqOMo6Qd2ghdP2NpPw9GKeQt39TBqXiVbisHQRAAfBATg', NULL, '2022-09-19 16:30:50', '2023-02-06 19:17:01', 0, 'cc2a6ea6-72fe-4a5d-b93a-6df87227238e.jpg', 0, '#FBD540', 1),
-(2, 'سليمان', 'محمد', 'user@user.com', '+201099271550', '2441675718116.jpg', 'Egypt', '814.2900', 1, NULL, '$2y$10$8UBagP6KNr2f6kCFRxkU/uzLKdgKePAau8uRnNweQI1iOrfVNGdAW', NULL, NULL, NULL, 1, 'qggDBsj0A3NR18REUuWCMG0m9j87kaIs26b8KiErQ80v0wlQVGbucH536URu', NULL, '2022-09-19 16:32:35', '2023-02-06 19:16:12', 1, 'avatar.png', 0, '#FBD540', 0),
-(13, 'Dalton', 'Salinas', 'jityji@mailinator.com', '01011801550', NULL, NULL, '0.0000', 1, NULL, '$2y$10$qYAiov2apqGrdkQGqmR.YeObQtTSOhOMawbZmhn8oJiBQWgB/aRny', NULL, NULL, NULL, 1, NULL, NULL, '2023-02-06 18:45:43', '2023-02-06 18:52:03', 0, 'avatar.png', 0, '#FBD540', 0);
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `image`, `location`, `balance`, `active`, `email_verified_at`, `password`, `api_token`, `facebook`, `twitter`, `currency_id`, `remember_token`, `deleted_at`, `created_at`, `updated_at`, `active_status`, `avatar`, `dark_mode`, `messenger_color`, `admin`, `uid`) VALUES
+(1, 'soliman', 'mohamed', 'soli.edh4an@gmail.com', '01099271550', 'avatar.png', NULL, '502.3800', 1, NULL, '$2y$10$8UBagP6KNr2f6kCFRxkU/uzLKdgKePAau8uRnNweQI1iOrfVNGdAW', '9ax4RdqgF2aZ65fTIQYXZPWJsdG1dSBxcd2WSmDVO6O2bqWTmbWDwOXK6kzC', NULL, NULL, 1, 'AUJWnpjTUeyNk5JRNPwWDc0o6VlYX4WqOAXsJXi1iHibHs4VaELKD3o505fi', NULL, '2022-09-19 16:30:50', '2023-02-13 04:00:03', 0, 'cc2a6ea6-72fe-4a5d-b93a-6df87227238e.jpg', 0, '#FBD540', 1, NULL),
+(2, 'سليمان', 'محمد', 'user@user.com', '+201099271550', '2441675718116.jpg', 'Egypt', '814.2900', 1, NULL, '$2y$10$8UBagP6KNr2f6kCFRxkU/uzLKdgKePAau8uRnNweQI1iOrfVNGdAW', NULL, NULL, NULL, 1, 'qggDBsj0A3NR18REUuWCMG0m9j87kaIs26b8KiErQ80v0wlQVGbucH536URu', NULL, '2022-09-19 16:32:35', '2023-02-06 19:16:12', 1, 'avatar.png', 0, '#FBD540', 1, NULL),
+(13, 'Dalton', 'Salinas', 'jityji@mailinator.com', '01011801550', NULL, NULL, '0.0000', 1, NULL, '$2y$10$qYAiov2apqGrdkQGqmR.YeObQtTSOhOMawbZmhn8oJiBQWgB/aRny', NULL, NULL, NULL, 1, NULL, NULL, '2023-02-06 18:45:43', '2023-02-06 18:52:03', 0, 'avatar.png', 0, '#FBD540', 0, NULL),
+(14, 'admin', 'admin', 'admin@admin.com', '0102233114455', 'avatar.png', 'Incididunt occaecat', '4890.1400', 1, NULL, '$2y$10$BU4THtRR4c3iZ.UJ3aA1/eECyCaHl7.UIfh0HQp6AJK.UumelgMsy', NULL, NULL, NULL, 1, 'vZZKomSFh8vhPrcM67JfebtlRJHOd2etYi2Zm2ZfH9IW2HeRGWW0A8uOOYYa', NULL, '2023-02-12 23:19:51', '2023-02-16 06:39:34', 1, 'avatar.png', 0, '#FBD540', 1, NULL),
+(15, 'mohsen', 'hagag', 'mo7senhagag@gmail.com', '01014366095', NULL, NULL, '0.0000', 1, NULL, '$2y$10$/UuZp.lUIgEZrc8smoPlkeftEUnb6t5WiJcIITdIzwbMR1g.0WBhm', NULL, NULL, NULL, 1, NULL, NULL, '2023-02-12 23:32:55', '2023-02-16 05:30:07', 0, 'avatar.png', 0, '#FBD540', 0, NULL),
+(16, 'Amr', 'ELDreeny', 'thedreeny@gmail.com', '01229975556', NULL, NULL, '4800.0000', 1, NULL, '$2y$10$EqsLyr/Kq0ZZjjriH5diy.ZuFN1.t/RuEGU8LC3bsGM7n73/f7ghK', NULL, NULL, NULL, 1, 'VsdVyBawr6qlyx4GEVvOeDl1bMAIg05cjK0dO1uv3GlxliRU7oxUakKvtOEU', NULL, '2023-02-13 00:11:08', '2023-02-13 00:31:06', 0, 'avatar.png', 0, '#FBD540', 0, NULL),
+(17, 'Abdo', 'Badal', 'abdohlwa63@gmail.com', '01010772643', '3701676402319.jpg', NULL, '5642.8600', 1, NULL, '$2y$10$eslruLJWsbWtqLGtMqOxV.36lWzk9Q9qu/QJzzLwdvcymUjXqznSi', NULL, 'https://www.facebook.com/elboodwbas?mibextid=ZbWKwL', NULL, 1, 'xtWfK2Jzb5Xaxt08KktIOI5zo38ugaNm2GLGu1t4EB4eSnaoMjdf1eeKHugO', NULL, '2023-02-13 03:46:46', '2023-02-16 05:37:05', 0, 'avatar.png', 0, '#FBD540', 0, NULL),
+(18, 'Nourhan', 'Hamdi', 'nourhanhamdi@hotmail.com', '01020057328', NULL, NULL, '5600.0000', 1, NULL, '$2y$10$cy1iSNLvt/0AKFnCCKi/fuuwMP8vxvNzeCXB3HIU/7iPTYNFQkd.y', NULL, NULL, NULL, 1, NULL, NULL, '2023-02-16 04:51:12', '2023-02-16 05:36:39', 1, 'avatar.png', 0, '#FBD540', 0, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vf_numbers`
+--
+
+CREATE TABLE `vf_numbers` (
+  `id` int(11) NOT NULL,
+  `number` char(11) NOT NULL,
+  `show` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=>hide,1=>show',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1018,10 +1128,10 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `image`,
 
 CREATE TABLE `welcomes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `content_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` enum('title','list') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `content_ar` text NOT NULL,
+  `content_en` text NOT NULL,
+  `type` enum('title','list') NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1031,10 +1141,10 @@ CREATE TABLE `welcomes` (
 --
 
 INSERT INTO `welcomes` (`id`, `content_ar`, `content_en`, `type`, `active`, `created_at`, `updated_at`) VALUES
-(3, 'وفر الوقت بشراء خدمات عالية الجودة.', 'Save time by buying high quality serices.', 'title', 1, '2022-09-13 15:30:20', '2022-09-20 14:57:53'),
-(4, 'تمكين انتقاد اليسار واليمين', 'Enable swipe left and right', 'list', 1, '2022-09-20 15:01:53', '2022-09-20 15:01:53'),
-(5, 'تغيير الفئات إلى فئاتنا', 'Change categories to our categories', 'list', 1, '2022-09-20 15:03:06', '2022-09-20 15:03:06'),
-(6, 'تغيير الشعارات لشعارات الفئات الفرعية', 'Change logos for subcategories logos', 'list', 1, '2022-09-20 15:03:33', '2022-09-20 15:03:33');
+(3, 'وفر الوقت بشراء خدمات عالية الجودة.', 'Trusted Escrow Solutions for Digital Markets', 'title', 1, '2022-09-13 15:30:20', '2023-02-13 13:04:24'),
+(4, 'تمكين انتقاد اليسار واليمين', 'Fraud Detection: The AI system is designed to detect and prevent any fraudulent activities that may harm the buyer or the seller.', 'list', 1, '2022-09-20 15:01:53', '2023-02-13 13:12:57'),
+(5, 'تغيير الفئات إلى فئاتنا', 'Escrow Services: The AI website acts as an intermediary, holding the funds in escrow until the transaction is completed successfully.', 'list', 1, '2022-09-20 15:03:06', '2023-02-13 13:13:30'),
+(6, 'تغيير الشعارات لشعارات الفئات الفرعية', 'Dispute Resolution: In case of any disputes, the AI system will facilitate a fair and efficient resolution process.', 'list', 1, '2022-09-20 15:03:33', '2023-02-13 13:14:05');
 
 -- --------------------------------------------------------
 
@@ -1044,12 +1154,12 @@ INSERT INTO `welcomes` (`id`, `content_ar`, `content_en`, `type`, `active`, `cre
 
 CREATE TABLE `why_us` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description_ar` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description_en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `icon` varchar(255) NOT NULL,
+  `title_ar` text NOT NULL,
+  `title_en` text NOT NULL,
+  `description_ar` text NOT NULL,
+  `description_en` text NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1158,6 +1268,13 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `api_token` (`api_token`);
 
 --
+-- Indexes for table `vf_numbers`
+--
+ALTER TABLE `vf_numbers`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD UNIQUE KEY `number` (`number`) USING BTREE;
+
+--
 -- Indexes for table `welcomes`
 --
 ALTER TABLE `welcomes`
@@ -1207,13 +1324,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `recharge_requests`
 --
 ALTER TABLE `recharge_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -1225,19 +1342,25 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `slide_lists`
 --
 ALTER TABLE `slide_lists`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `vf_numbers`
+--
+ALTER TABLE `vf_numbers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `welcomes`
