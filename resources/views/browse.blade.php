@@ -4,7 +4,7 @@
 
 <!--  start browse  -->
 
-                        {{-- <div class="col-md-4 col-4">
+                        <div class="col-md-4 col-4">
                             <form class="sort-form wow fadeInUp" data-wow-delay=".7s" >
                                 <div class="input-group">
                                     <label for="sort">Sort by:</label>
@@ -14,12 +14,12 @@
                                     </select>
                                 </div>
                             </form>
-                        </div> --}}
+                        </div>
 
 
                 <div class="row">
                     @foreach ($posts as $post)
-                        {{-- <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="mb-3">
                             <div class="card">
                                 <div class="card-img">
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div> --}}
+                        </div>
                     @endforeach
                 </div>
                 <div class="d-flex justify-content-center mt-3">
