@@ -109,7 +109,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <h1>Username</h1>
+                                <a href="">Username</a>
                                 <span><i class="fa-regular fa-thumbs-up"></i><h2>425</h2></span>
                                 <span><i style="color: #3F9F4D;" class="fa-solid fa-circle"></i><h2>Active now</h2></span>
                             </td>
