@@ -2,98 +2,65 @@
 
 @section('content')
 
- <!--  start browse  -->
-    <section class="browse">
-        
-        <div class="row">
-            <div class="col-md-3 browse-form">
-                <form> 
-                    <div class="form-title">
-                        <h1>Buy</h1>
-                    </div>
-                    <div class="dropdown dropdown-1">
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span><img width="25px"  src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets. Socialmedia, Games</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                        </ul>
-                        <div class="currency">
-                            <span>1 BTC  =</span><span>23,493.47 USD</span><i class="fa-sharp fa-solid fa-arrow-trend-up"></i>
-                        </div>
-                    </div>
+<!--  start browse  -->
 
-                    <div class="dropdown dropdown-z dropdown-3 dropdown-show">
-                        <h1 style="width: 80%"><img src="{{asset('images/pay-with.png')}}" width="100%" alt=""></h1>
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
-                        <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="dropdown dropdown-3 dropdown-show">
-                        <h2>Pay via</h2>
-                        <h1 style="width: 80%"><img src="{{asset('images/pay-with.png')}}" width="100%" alt=""></h1>
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
-                        <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                        </ul>
-                    </div>
-    
-                    <div class="dropdown dropdown-4 dropdown-show">
-                        <h2 style="color:black;">I want to spend</h2>
-                        <h1></h1>
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            USD
-                        </a>
-                        <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                            <li><a class="dropdown-item" href="#">test 1</a></li>
-                            <li><a class="dropdown-item" href="#">test 2</a></li>
-                            <li><a class="dropdown-item" href="#">test 3</a></li>
-                        </ul>
-                        <h3 class="pos" style="color:black;">Offer owner location</h3>
-                    </div>
-                    <div class="form-input">
-                        <input placeholder="United Kingdom (UK)" type="text">
-                    </div>
-                    <p class="warning">Release the money to seller only after recceiving (1) confirmation in your wallet</p>
-                    <p class="esc-info"><a class="a1" href="#">Click me</a> for more information about our <a class="a2" href="#">escrow AI system</a></p>
-                    <button type="submit" class="form-btn">Find Offers</button>
-                </form>
-            </div>
-            <div class="browse-table col-md-9">
-                <div class="browse-header">
-                    <img src="{{asset('images/posts/2311677381718.png')}}">
-                    <h1>Cryptocurrency</h1>
+                        {{-- <div class="col-md-4 col-4">
+                            <form class="sort-form wow fadeInUp" data-wow-delay=".7s" >
+                                <div class="input-group">
+                                    <label for="sort">Sort by:</label>
+                                    <select id="sort">
+                                        <option>Newest Post</option>
+                                        <option>Oldest Post</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div> --}}
+
+
+                <div class="row">
+                    @foreach ($posts as $post)
+                        {{-- <div class="col-md-4">
+                            <div class="mb-3">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{$post->image_url}}" class="w-100 d-block mx-auto"
+                                        style="height: 200px; object-fit: cover;" alt="">
+                                </div>
+                                <div class="card-body">
+                                    <h5>{{$post->title}}</h5>
+                                    <p class="lead"
+                                        style="height: 50px;overflow: hidden;text-overflow: ellipsis;line-height: 1.2;">{{$post->description}}</p>
+                                    <strong>{{ __("Added By") }}:
+                                        <a href="{{ route("profile",  $post->created_by) }}">{{ $post->user->name ?? "" }}</a>
+                                    </strong>
+                                    <div class="alert alert-light p-2">
+                                        <strong
+                                            class="text-primary">{{$post->price}} {{$post->currency->name ?? $currencies[0]->name}}</strong>
+                                    </div>
+
+                                    @if($post->status == 1)
+                                        @if(auth()->id() != $post->created_by)
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="{{route("post.show", $post->id)}}" class="btn btn-warning">
+                                                    {{ __('buy now') }}
+                                                </a>
+                                                <a href="{{route(config('chatify.routes.prefix')).'/'.$post->created_by.'/'.$post->id}}"
+                                                    class="btn btn-light">
+                                                    {{ __('chat') }}
+                                                </a>
+                                            </div>
+                                        @endif
+                                    @else
+                                        <div class="alert alert-default-danger">{{__("sold out")}}</div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        </div> --}}
+                    @endforeach
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    {!! $posts->withQueryString()->links("pagination::bootstrap-4") !!}
                 </div>
 
                 <table>

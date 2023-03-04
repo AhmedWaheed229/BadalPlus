@@ -30,8 +30,7 @@
     background-color: #f7f7f7;
 }
 .messenger-favorites div.avatar {
-    border: 0 solid #fff;
-    background-color: transparent;
+    border: 2px solid #fff;
 }
 .messenger-list-item:hover {
     background: #f7f7f7;
@@ -79,7 +78,7 @@
     color: #606679;
 }
 .messenger-list-item td p {
-    color: #000;
+    color: #606679;
 }
 .activeStatus {
     border: 2px solid #fff;
@@ -92,7 +91,7 @@
 }
 
 .avatar {
-    background-color: transparent;
+    background-color: #eee;
 }
 
 /*
