@@ -26,12 +26,14 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="mb-3 mt-3">
+                            <div class="mb-3">
                                 <label for="active">
                                     {{__('Showing')}}
                                 </label>
-                                <input type="checkbox" name="show" id="active" value="1" {{ $record->show ? 'checked'
-                                    : '' }}>
+                                <select name="show" class="form-control" id="">
+                                    <option value="0">not showing</option>
+                                    <option value="1">showing</option>
+                                </select>
                             </div>
                         </div>
                     </div>

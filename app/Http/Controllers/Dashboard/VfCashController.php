@@ -37,9 +37,17 @@ class VfCashController extends Controller
     {
         $request->validate([
             'number' => 'required|regex:/^01[0-2,5]\d{8}$/|unique:vf_numbers,number',
-            'show' => 'boolean'
+            'show' => 'required|in:0,1'
         ]);
         $data = $request->except('_token');
+        if ($request->show == '1') {
+            $anothers = $this->model->all();
+            foreach ($anothers as $key => $value) {
+                $this->model->find($value->id)->update([
+                    'show' => '0'
+                ]);
+            }
+        }
         $this->model->create($data);
         return redirect(route('cash.index'))->with(['success' => __('added successfully')]);
     }
@@ -56,9 +64,15 @@ class VfCashController extends Controller
     {
         $request->validate([
             'number' => ['required', 'regex:/^01[0-2,5]\d{8}$/', Rule::unique('vf_numbers', 'number')->ignore($id)],
-            'show' => 'boolean'
+            'show' => 'required|in:0,1'
         ]);
         $data = $request->except('_token');
+        $anothers = $this->model->all();
+        foreach ($anothers as $key => $value) {
+            $this->model->find($value->id)->update([
+                'show' => '0'
+            ]);
+        }
         $record = $this->model->findOrFail($id);
         $record->update($data);
         return redirect(route('cash.index'))->with(['success' => __('updated successfully')]);
