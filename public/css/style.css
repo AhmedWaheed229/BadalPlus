@@ -1354,6 +1354,8 @@ a{
     filter: brightness(0.9);
 }
 
+/* change again */
+
 @media (max-width: 1575px){
     .browse form .dropdown.dropdown-3 > a{
         width: 35px;
