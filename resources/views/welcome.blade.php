@@ -4,7 +4,8 @@
 
 
         <!-- start welcome section-->
-    <section class="welcome-section p-5">
+    <section style="background-color: #eca9001a;" class="welcome-section p-5">
+        <div class="bg"></div>
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-6">
@@ -104,7 +105,7 @@
 
 
     <!--  end services  -->
-    <section class="services">
+    <section style="background-color: #eca9001a;" class="services">
         <div class="container">
             <div class="services-heading text-center wow fadeInUp" data-wow-delay=".3s">
                 <p>{{ __('our services') }}</p>
@@ -128,7 +129,7 @@
     <!--  end services  -->
 
     <!--  start why  -->
-    <section class="why">
+    <section style="background-color: #eca9001a;" class="why">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -176,7 +177,7 @@
     <!--  end why  -->
 
     <!--  start customer say  -->
-    <section class="customer-say">
+    <section style="background-color: #eca9001a;" class="customer-say">
         <div class="container">
             <div class="customer-say-heading text-center wow fadeInUp" data-wow-delay=".3s">
                 <h3>{{ __("What our customers say?") }}</h3>

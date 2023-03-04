@@ -21,9 +21,9 @@
         <link rel="stylesheet" href="{{asset('css/style_ar.css')}}">
     @endif
 </head>
-<body style="background-color: #eca9001a;">
+<body style="overflow-x: hidden:">
 <!-- start navbar-->
-<nav class="navbar navbar-expand-lg">
+<nav style="background-color: #eca9001a; width: 100%;" class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="{{route('home')}}">
             <img src="{{asset('images/logo.png')}}" alt="Badal Plus">
@@ -66,7 +66,7 @@
 <!-- end navbar-->
 @yield('content')
 
-<section class="footer">
+<section style="background-color: #c4c4c41a;" class="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
