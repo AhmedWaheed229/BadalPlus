@@ -65,7 +65,6 @@
                             </ul>
                         </div>
 
-
                         <div class="dropdown dropdown-4 dropdown-show">
                             <h2>I want to spend</h2>
                             <h1></h1>
@@ -73,6 +72,21 @@
                                 EGP
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" href="#">test 3</a></li>
                                 <li><a class="dropdown-item" href="#">test 1</a></li>
                                 <li><a class="dropdown-item" href="#">test 2</a></li>
                                 <li><a class="dropdown-item" href="#">test 3</a></li>
