@@ -131,7 +131,7 @@
                             <td>   
                                 <h1>22,863,22 USD</h1>
                                 <span><i class="fa-solid fa-arrow-down"></i><h2>1%</h2><ion-icon name="alert"></ion-icon></span>
-                                <button>Buy</button>
+                                <a href="#">Buy</a>
                             </td>
                         </tr>
                     </tbody>
