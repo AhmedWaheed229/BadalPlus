@@ -4,8 +4,7 @@
 
 
         <!-- start welcome section-->
-    <section style="background-color: #eca9001a;" class="welcome-section p-5">
-        <div class="bg"></div>
+    <section style="background-color: #eca9001a;" class="welcome-section p-4">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-6">
@@ -21,7 +20,7 @@
                 <div class="col-md-6 answering rounded-4">
                     <form> 
                         <div class="change-btn">
-                            <div class="active">Buy</div>
+                            <div>Buy</div>
                             <div>Sell</div>
                         </div>
 
