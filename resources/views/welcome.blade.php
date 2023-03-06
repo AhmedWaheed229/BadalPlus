@@ -20,8 +20,8 @@
                 <div class="col-md-6 answering rounded-4">
                     <form> 
                         <div class="change-btn">
-                            <div>Buy</div>
-                            <div>Sell</div>
+                            <div class="buy-btn">Buy</div>
+                            <div class="sell-btn">Sell</div>
                         </div>
 
                         <div class="dropdown dropdown-1">

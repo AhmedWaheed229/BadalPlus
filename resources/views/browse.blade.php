@@ -96,6 +96,10 @@
                     <h1>Cryptocurrency</h1>
                 </div>
 
+                <div>  
+                    <h3 style="margin-top: 20px" class="table-title">Showing 125Bitcoin offers (BTC).</h3>
+                </div>
+
                 <table>
                     <thead>
                         <tr>
@@ -109,9 +113,9 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a href="#">Username</a>
+                                <a href="#" class="active">Username</a>
                                 <span><i class="fa-regular fa-thumbs-up"></i><h2>425</h2></span>
-                                <span><i style="color: #3F9F4D;" class="fa-solid fa-circle"></i><h2>Active now</h2></span>
+                                <span><i class="fa-solid fa-circle active statue"></i><h2>Active now</h2></span>
                             </td>
                             <td>
                                 <h1>ANY Credit/Debit Card</h1>
@@ -134,8 +138,40 @@
                                 <a href="#">Buy</a>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <a href="#" class="">Username</a>
+                                <span><i class="fa-regular fa-thumbs-up"></i><h2>425</h2></span>
+                                <span><i class="fa-solid fa-circle statue"></i><h2>Active now</h2></span>
+                            </td>
+                            <td>
+                                <h1>ANY Credit/Debit Card</h1>
+                                <h2>5557r5288r5268 TD</h2>
+                                <span>e-codes accepted</span>
+                            </td>
+                            <td>
+                                <span><h1>5 min</h1><i class="fa-regular fa-clock"></i></span>
+                            </td>
+                            <td>
+                                <h1>1 USD = 1.01 USD of BTC</h1>
+                                <div>
+                                    <span><h2>Min purchase:</h2><h3>290 USD</h3></span>
+                                    <span><h2>Max purchase:</h2><h3>2,066 USD</h3></span>
+                                </div>
+                            </td>
+                            <td>   
+                                <h1>22,863,22 USD</h1>
+                                <span><i class="fa-solid fa-arrow-down"></i><h2>1%</h2><ion-icon name="alert"></ion-icon></span>
+                                <a href="#">Buy</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
+
+                <div class="table-btn">
+                    <button class="more">Load More Offers</button>
+                </div>
+
             </div>
     </section>
     <!--  end browse  -->
