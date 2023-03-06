@@ -97,7 +97,7 @@
                 </div>
 
                 <div>
-                    <h3 style="margin-top: 20px" class="table-title">Showing 125Bitcoin offers (BTC).</h3>
+                    <h3 style="margin-top: 20px" class="table-title">{{__('posts')}} ({{$post_count}}) {{ __('btc offers') }} (BTC).</h3>
                 </div>
 
                 <table>
