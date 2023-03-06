@@ -4,10 +4,10 @@
 
  <!--  start browse  -->
     <section class="browse">
-        
+
         <div class="row">
             <div class="col-md-3 browse-form">
-                <form> 
+                <form>
                     <div class="form-title">
                         <h1>Buy</h1>
                     </div>
@@ -38,7 +38,7 @@
                             <li><a class="dropdown-item" href="#">test 3</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="dropdown dropdown-3 dropdown-show">
                         <h2>Pay via</h2>
                         <h1 style="width: 80%"><img src="{{asset('images/pay-with.png')}}" width="100%" alt=""></h1>
@@ -53,7 +53,7 @@
                             <li><a class="dropdown-item" href="#">test 3</a></li>
                         </ul>
                     </div>
-    
+
                     <div class="dropdown dropdown-4 dropdown-show">
                         <h2 style="color:black;">I want to spend</h2>
                         <h1></h1>
@@ -96,7 +96,7 @@
                     <h1>Cryptocurrency</h1>
                 </div>
 
-                <div>  
+                <div>
                     <h3 style="margin-top: 20px" class="table-title">Showing 125Bitcoin offers (BTC).</h3>
                 </div>
 
@@ -132,7 +132,7 @@
                                     <span><h2>Max purchase:</h2><h3>2,066 USD</h3></span>
                                 </div>
                             </td>
-                            <td>   
+                            <td>
                                 <h1>22,863,22 USD</h1>
                                 <span><i class="fa-solid fa-arrow-down"></i><h2>1%</h2><ion-icon name="alert"></ion-icon></span>
                                 <a href="#">Buy</a>
@@ -159,7 +159,7 @@
                                     <span><h2>Max purchase:</h2><h3>2,066 USD</h3></span>
                                 </div>
                             </td>
-                            <td>   
+                            <td>
                                 <h1>22,863,22 USD</h1>
                                 <span><i class="fa-solid fa-arrow-down"></i><h2>1%</h2><ion-icon name="alert"></ion-icon></span>
                                 <a href="#">Buy</a>

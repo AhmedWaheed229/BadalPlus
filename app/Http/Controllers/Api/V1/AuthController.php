@@ -125,4 +125,31 @@ class AuthController extends Controller
             ]);
         }
     }
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string','regex:/(01)[0-9]{9}/', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['status' => false, 'data' => $validator->messages()]);
+        }
+        User::create([
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'email' => $request['email'],
+            'phone' => $request['phone'],
+            'password' => Hash::make($request['password']),
+        ]);
+        $user= User::where('email',$request['email']);
+        $token = $user->createToken($user->get()[0]->name);
+        return response()->json([
+            "status" => true,
+            "data" => $user->get()[0],
+            "token" => $token->plainTextToken
+        ]);
+    }
 }
