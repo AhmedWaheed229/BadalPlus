@@ -37,14 +37,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav @if(app()->getLocale() == 'ar') me-auto @else ms-auto @endif mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route("browse") }}">{{ __("browse") }}</a>
+                    <a class="nav-link active" href="{{ route("browse") }}">{{ __("browse") }}</a>
                 </li>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{__('login')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-default" href="{{ route('register') }}">{{__('register')}}</a>
+                        <a class="nav-link btn btn-default sign-up-btn" href="{{ route('register') }}">{{__('Sign up')}}</a>
                     </li>
                 @else
                     <li class="nav-item">
