@@ -103,50 +103,68 @@
                 <h1>Cryptocurrency</h1>
             </div>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Buy from</td>
-                            <td>Pay with</td>
-                            <td>trade speed</td>
-                            <td>Price per Bitcoin <i class="fa-regular fa-circle-question"></i></td>
-                            <td><span><i class="fa-solid fa-arrow-down-short-wide"></i></span><span><i class="fa-solid fa-info"></i></span></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h1>Username</h1>
-                                <a href="#">Username</a>
-                                <span><i class="fa-regular fa-thumbs-up"></i><h2>425</h2></span>
-                                <span><i style="color: #3F9F4D;" class="fa-solid fa-circle"></i><h2>Active now</h2></span>
-                            </td>
-                            <td>
-                                <h1>ANY Credit/Debit Card</h1>
-                                <h2>5557r5288r5268 TD</h2>
-                                <span>50/50 Fee</span>
-                            </td>
-                            <td>
-                                <span><h1>5 min</h1><i class="fa-regular fa-clock"></i></span>
-                            </td>
-                            <td>
-                                <h1>1 USD = 1.01 USD of BTC</h1>
-                                <div>
-                                    <span><h2>Min purchase:</h2><h3>290 USD</h3></span>
-                                    <span><h2>Max purchase:</h2><h3>2,066 USD</h3></span>
-                                </div>
-                            </td>
-                            <td>
-                                <h1>22,863,22 USD</h1>
-                                <span><i class="fa-solid fa-arrow-down"></i><h2>1%</h2><ion-icon name="alert"></ion-icon></span>
-                                <a href="#">Buy</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-    </section>
-    <!--  end browse  -->
+            <table>
+                <thead>
+                    <tr>
+                        <td>Buy from</td>
+                        <td>Pay with</td>
+                        <td>trade speed</td>
+                        <td>Price per Bitcoin <i class="fa-regular fa-circle-question"></i></td>
+                        <td><span><i class="fa-solid fa-arrow-down-short-wide"></i></span><span><i
+                                    class="fa-solid fa-info"></i></span></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($posts as $post )
+                    <tr>
+                        <td>
+                            <h1>added By</h1>
+                            <a href="{{ route("profile", $post->created_by) }}">{{ $post->user->name ?? "" }}</a>
+                            <span><i class="fa-regular fa-thumbs-up"></i>
+                                <h2>425</h2>
+                            </span>
+                            <span><i style="color: #3F9F4D;" class="fa-solid fa-circle"></i>
+                                <h2>Active now</h2>
+                            </span>
+                        </td>
+                        <td>
+                            <h1>ANY Credit/Debit Card</h1>
+                            <h2>5557r5288r5268 TD</h2>
+                            <span>50/50 Fee</span>
+                        </td>
+                        <td>
+                            <span>
+                                <h1>5 min</h1><i class="fa-regular fa-clock"></i>
+                            </span>
+                        </td>
+                        <td>
+                            <h1>1 USD = 1.01 USD of BTC</h1>
+                            <div>
+                                <span>
+                                    <h2>Min purchase:</h2>
+                                    <h3>290 USD</h3>
+                                </span>
+                                <span>
+                                    <h2>Max purchase:</h2>
+                                    <h3>2,066 USD</h3>
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <h1>{{$post->price}} {{$post->currency->name ?? $currencies[0]->name}}</h1>
+                            <span><i class="fa-solid fa-arrow-down"></i>
+                                <h2>1%</h2>
+                                <ion-icon name="alert"></ion-icon>
+                            </span>
+                            <a href="#">Buy</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+</section>
+<!--  end browse  -->
 @endsection
 
 @section("scripts")
