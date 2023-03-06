@@ -46,3 +46,22 @@
     border-top-left-radius: .25rem !important;
     border-bottom-left-radius: 0.25rem !important;
 }
+
+
+.welcome-section .answering form .dropdown.dropdown-1,
+.welcome-section .answering form .dropdown.dropdown-2,
+.welcome-section .answering form .dropdown.dropdown-3,
+.welcome-section .answering form .dropdown.dropdown-4{
+    direction: ltr;
+}
+
+.browse form .dropdown.dropdown-1,
+.browse form .dropdown.dropdown-2,
+.browse form .dropdown.dropdown-3,
+.browse form .dropdown.dropdown-4{
+    direction: ltr;
+}
+
+.browse .browse-table table {
+    direction: ltr;
+}
