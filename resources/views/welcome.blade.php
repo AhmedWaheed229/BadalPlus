@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="dropdown dropdown-1">
-                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="btn dropdown-toggle test selected" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span><img width="25px"  src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets. Socialmedia, Games</span>
                             </a>
                             <ul class="dropdown-menu">
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="dropdown dropdown-2">
-                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{asset('images/pay-with.png')}}" width="90%" alt="">
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
@@ -54,39 +54,24 @@
 
                         
                         <div class="dropdown dropdown-3 dropdown-show">
-                            <h1></h1>
+                            <h1 class="selected"></h1>
                             <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Show All
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a href="#" class="dropdown-item">test 1</a></li>
+                                <li><a href="#" class="dropdown-item">test 2</a></li>
+                                <li><a href="#" class="dropdown-item">test 3</a></li>
                             </ul>
                         </div>
 
                         <div class="dropdown dropdown-4 dropdown-show">
                             <h2>I want to spend</h2>
-                            <h1></h1>
+                            <h1 class="selected"></h1>
                             <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 EGP
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
                                 <li><a class="dropdown-item" href="#">test 1</a></li>
                                 <li><a class="dropdown-item" href="#">test 2</a></li>
                                 <li><a class="dropdown-item" href="#">test 3</a></li>
