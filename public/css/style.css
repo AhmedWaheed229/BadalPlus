@@ -151,6 +151,7 @@ a{
 .welcome-section {
     padding: 20px 0;
     overflow: hidden;
+    z-index: 500 !important;
 }
 .welcome-section .welcome-text {
     margin-bottom: 30px;
@@ -476,7 +477,6 @@ a{
 
 
 @media (max-width: 1200px){
-
     .welcome-section .answering form .dropdown > a span img{
         width: 20px;
     }
@@ -555,6 +555,10 @@ a{
 
     .why .why-heading h3{
         font-size: 20px !important;
+    }
+
+    .welcome-section .answering form .dropdown.dropdown-3 ul, .welcome-section .answering form .dropdown.dropdown-4 ul {
+        transform: translate(-10px , 50px) !important;
     }
 }
 
@@ -783,6 +787,7 @@ a{
 /* start services */
 .services {
     padding: 50px 0;
+    
 }
 .services .services-heading {
     margin: 0 auto 40px;
@@ -1227,6 +1232,12 @@ a{
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.127);
 }
 
+.browse .row .browse-table table h3{
+    font-size: 5px;
+    color: black;
+    margin: 20px;
+}
+
 .browse .browse-table table thead{
     background-color: #FEF7E6;
 }
@@ -1279,7 +1290,7 @@ a{
 .browse .browse-table table tbody tr td a{
     font-size: 16px;
     font-weight: 500;
-    color: #009D10;
+    color: #FFAB00;
     text-decoration: none;
 }
 
@@ -1291,6 +1302,18 @@ a{
     margin: 15px 0;
 }
 
+.browse .browse-table table tbody tr td:nth-child(1) span i.statue{
+    color: #FFAB00;
+}
+
+.browse .browse-table table tbody tr td:nth-child(1) span i.statue.active{
+    color: #3E9F4D;
+}
+
+.browse .browse-table table tbody tr td a.active{
+    color: #3E9F4D;
+}
+
 .browse .browse-table table tbody tr td:nth-child(1) span h2{
     font-size: 16px;
     font-weight: 500;
@@ -1298,6 +1321,10 @@ a{
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
+}
+
+.browse .browse-table table tbody tr {
+    border-top: 1px solid rgba(0, 0, 0, 0.146);
 }
 
 .browse .browse-table table tbody tr td:nth-child(2){
@@ -1411,6 +1438,31 @@ a{
     padding: 3px 20px;
     cursor: pointer;
     color: black;
+}
+
+.browse .browse-table .table-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.browse .browse-table .table-btn button{
+    width: 200px;
+    height: 40px;
+    background-color: #FBD540;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.browse .browse-table .table-btn button:hover{
+    filter: brightness(0.9);
 }
 
 .browse .browse-table table tbody tr td:nth-child(5) a:hover{
@@ -1542,6 +1594,22 @@ a{
         width: 70%;
         height: 55px;
     }
+
+    .browse form .dropdown ul{
+        transform: translate(-15px , 67px) !important;
+    }
+
+    .browse form .dropdown.dropdown.dropdown-1 ul{
+        transform: translate(0px , 52px) !important;
+    }
+
+    .browse form .dropdown.dropdown.dropdown-4 ul{
+        transform: translate(-5px , 52px) !important;
+    }
+
+    .browse .browse-table table{
+        margin: 30px 0;
+    }
 }
 
 @media (max-width: 600px){
@@ -1623,6 +1691,10 @@ a{
     .browse .browse-table .browse-header img {
         height: 110px;
         width: 110px;
+    }
+
+    .browse .browse-table .table-title{
+        font-size: 20px;
     }
 }
 
@@ -1723,6 +1795,11 @@ a{
 
     .browse > .row .browse-table{
         padding: 5px;
+    }
+
+    .browse .browse-table .table-title{
+        font-size: 15px;
+        margin-left: 10px;
     }
 }
 
