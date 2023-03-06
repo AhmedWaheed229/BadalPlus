@@ -56,7 +56,7 @@
 
                     <div class="dropdown dropdown-4 dropdown-show">
                         <h2 style="color:black;">I want to spend</h2>
-                        <h1></h1>
+                        <h1 class="selected"></h1>
                         <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             USD
                         </a>
