@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="{{asset('js/slick/slick.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    
     @yield('css')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     @if(app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{asset('css/style_ar.css')}}">
     @endif
 </head>
-<body style="overflow-x: hidden:">
+<body>
 <!-- start navbar-->
 <nav style="background-color: #eca9001a; width: 100%;" class="navbar navbar-expand-lg">
     <div class="container">

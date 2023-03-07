@@ -1,17 +1,17 @@
 var buyBtn = document.querySelector('.buy-btn');
 var sellBtn = document.querySelector('.sell-btn');
 const dropdowns = document.querySelectorAll('.dropdown-show');
-var bton = document.querySelector('.test');
 
 
-buyBtn.onclick = function(){
-    buyBtn.classList.add('active');
-    sellBtn.classList.remove('active');
-} 
 
-sellBtn.onclick = function(){
+sellBtn.onclick = function () {
     sellBtn.classList.add('active');
     buyBtn.classList.remove('active');
+}
+
+buyBtn.onclick = function () {
+    buyBtn.classList.add('active');
+    sellBtn.classList.remove('active');
 }
 
 dropdowns.forEach(dropdown => {
@@ -26,3 +26,7 @@ dropdowns.forEach(dropdown => {
         })
     })
 })
+
+function test() {
+    console.log('test function');
+}

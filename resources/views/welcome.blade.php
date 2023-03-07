@@ -29,9 +29,13 @@
                                 <span><img width="25px"  src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets. Socialmedia, Games</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">Youtube</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">Instagram</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">Tiktok</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">PUBG MOBILE</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">League of legends</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">Valorant</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">Fortnite</a></li>
                             </ul>
                             <div class="currency">
                                 <span>1 BTC  =</span><span>24,566.26 USD</span><i class="fa-sharp fa-solid fa-arrow-trend-up"></i>
@@ -40,12 +44,32 @@
 
                         <div class="dropdown dropdown-2">
                             <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('images/pay-with.png')}}" width="90%" alt="">
+                                <img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt="">
+                                <img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">
+                                <img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">
+                                <img src="{{asset('images/second select icons/Rectangle 9/512.png')}}" alt="">
+                                <img src="{{asset('images/second select icons/Rectangle 5/512.png')}}" alt="">
+                                <img src="{{asset('images/second select icons/Rectangle 15/512.png')}}" alt="">
+                                <img class="r-img" src="{{asset('images/second select icons/Rectangle 7/512.png')}}" alt="">
+                                <img class="r-img" src="{{asset('images/second select icons/Rectangle 8/512.png')}}" alt="">
+                                <img class="r-img" src="{{asset('images/second select icons/Rectangle 16/512.png')}}" alt="">
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt=""> BTC</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">USDT</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">Ethereum</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt=""> BTC</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">USDT</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">Ethereum</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt=""> BTC</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">USDT</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">Ethereum</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt=""> BTC</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">USDT</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">Ethereum</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt=""> BTC</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">USDT</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">Ethereum</a></li>
                             </ul>
                             <div class="currency">
                                 <span>Pay with</span>
@@ -59,9 +83,10 @@
                                 Show All
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                <li><a href="#" class="dropdown-item">test 1</a></li>
-                                <li><a href="#" class="dropdown-item">test 2</a></li>
-                                <li><a href="#" class="dropdown-item">test 3</a></li>
+                                <li><a href="#" onclick="test()" class="dropdown-item">Skrill</a></li>
+                                <li><a href="#" onclick="test()" class="dropdown-item">Perfect money</a></li>
+                                <li><a href="#" onclick="test()" class="dropdown-item">Web money</a></li>
+                                <li><a href="#" onclick="test()" class="dropdown-item">Pioneer</a></li>
                             </ul>
                         </div>
 
@@ -72,9 +97,24 @@
                                 EGP
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                <li><a class="dropdown-item" href="#">test 1</a></li>
-                                <li><a class="dropdown-item" href="#">test 2</a></li>
-                                <li><a class="dropdown-item" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 3</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 1</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 2</a></li>
+                                <li><a class="dropdown-item" onclick="test()" href="#">test 3</a></li>
                             </ul>
                             <h3 class="pos">Minimum: 10 EGP</h3>
                         </div>
