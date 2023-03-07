@@ -43,10 +43,10 @@ class HomeController extends Controller
 
         $posts = $posts->where('active', 1)->where('status', 1)
         ->with('user', 'currency', 'category')->latest()->paginate(15);
-
+        $categories_parent = Category::where('parent_id','0')->get();
         $post_count = Post::where('active', 1)->where('status', 1)->count();
 
-        return view('browse', compact('posts', 'post_count'));
+        return view('browse', compact('posts', 'post_count'))->with('categories_parent',$categories_parent);
     }
 
     public function getSubCategoris(Request $request)

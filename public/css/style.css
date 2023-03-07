@@ -573,8 +573,10 @@ a{
 
 
 
-
-
+.browse form .dropdown.dropdown-1 ul::-webkit-scrollbar{
+    background-color: #e6e6e6;
+    width: 13px;
+}
 
 .browse form .dropdown.dropdown-1 ul::-webkit-scrollbar-thumb{
     background-color: #FBD540;

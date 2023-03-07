@@ -76,7 +76,7 @@
                         <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 5/512.png')}}" alt="">Orange cash</a></li>
                         <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 6/512.png')}}" alt="">CIB</a></li>
                         <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 7/512.png')}}" alt="">Visa</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 8/512.png')}}" alt="">Mastercard</a></li>
+                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 8/512.png')}}" alt="">Master</a></li>
                     </ul>
                 </div>
 
