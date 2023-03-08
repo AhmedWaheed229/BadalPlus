@@ -12,10 +12,8 @@
                     <h1>Buy</h1>
                 </div>
                 <div class="dropdown dropdown-1">
-                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <span><img width="25px" src="{{asset('images/crybto.png')}}" style="filter: none;"> CryptoCurrency, Wallets.
-                            Socialmedia, Games</span>
+                    <a class="btn dropdown-toggle test selected" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span><img width="25px"  src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets. Socialmedia, Games</span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" onclick="test()" href="#">Youtube</a></li>
@@ -27,13 +25,12 @@
                         <li><a class="dropdown-item" onclick="test()" href="#">Fortnite</a></li>
                     </ul>
                     <div class="currency">
-                        <span>1 BTC =</span><span>23,493.47 USD</span><i
-                            class="fa-sharp fa-solid fa-arrow-trend-up"></i>
+                        <span>1 BTC  =</span><span>24,566.26 USD</span><i class="fa-sharp fa-solid fa-arrow-trend-up"></i>
                     </div>
                 </div>
 
                 <div class="dropdown dropdown-z dropdown-3 dropdown-show">
-                    <h1 style="width: 100%">
+                    <h1 style="width: 100%" class="selected">
                         <img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 9/512.png')}}" alt="">
@@ -56,7 +53,7 @@
 
                 <div class="dropdown dropdown-x dropdown-3 dropdown-show">
                     <h2>Pay via</h2>
-                    <h1 style="width: 100%">
+                    <h1 style="width: 100%" class="selected">
                         <img src="{{asset('images/first select icons/Ellipse 3/512.png')}}" alt="">
                         <img src="{{asset('images/first select icons/Ellipse 4/512.png')}}" alt="">
                         <img src="{{asset('images/first select icons/Ellipse 5/512.png')}}" alt="">
@@ -82,8 +79,8 @@
 
                 <div class="dropdown dropdown-4 dropdown-show">
                     <h2 style="color:black;">I want to spend</h2>
-                    <h1 class="selected"></h1>
-                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <input type="number">
+                    <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         USD
                     </a>
@@ -100,7 +97,7 @@
                 <p class="warning">Release the money to seller only after recceiving (1) confirmation in your wallet</p>
                 <p class="esc-info"><a class="a1" href="#">Click me</a> for more information about our <a class="a2"
                         href="#">escrow AI system</a></p>
-                <button type="submit" class="form-btn">Find Offers</button>
+                <button type="submit" class="form-submit form-btn">Find Offers</button>
             </form>
         </div>
         <div class="browse-table col-md-9">
@@ -248,5 +245,7 @@
             }
         });
     }
+    
 </script>
+<script src="{{asset('js/badal2.js')}}"></script>
 @endsection

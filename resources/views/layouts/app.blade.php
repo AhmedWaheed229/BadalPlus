@@ -119,8 +119,8 @@
                                     <div class="mb-3 form-group">
                                         <label for="email">{{__('email')}}</label>
                                         <input type="email" id="email"
-                                               class="form-control @error('email') is-invalid @enderror"
-                                               name="email" autocomplete="username">
+                                            class="form-control @error('email') is-invalid @enderror"
+                                            name="email" autocomplete="username">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -131,16 +131,16 @@
                                     <div class="mb-3 form-group">
                                         <label for="password">{{__('password')}}</label>
                                         <input type="password" id="password"
-                                               class="form-control @error('password') is-invalid @enderror"
-                                               name="password"
-                                               autocomplete="new-password">
+                                            class="form-control @error('password') is-invalid @enderror"
+                                            name="password"
+                                            autocomplete="new-password">
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3 footer-login-btn">
                                         <button type="submit" class="btn btn-default">Login</button>
                                     </div>
                                 </form>
@@ -161,7 +161,7 @@
 <script src="{{asset('js/wow.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-<script src="{{asset('js/badal.js')}}"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
 

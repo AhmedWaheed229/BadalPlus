@@ -1,17 +1,5 @@
-var buyBtn = document.querySelector('.buy-btn');
-var sellBtn = document.querySelector('.sell-btn');
+
 const dropdowns = document.querySelectorAll('.dropdown');
-
-
-sellBtn.onclick = function () {
-    sellBtn.classList.add('active');
-    buyBtn.classList.remove('active');
-}
-
-buyBtn.onclick = function () {
-    buyBtn.classList.add('active');
-    sellBtn.classList.remove('active');
-}
 
 dropdowns.forEach(dropdown => {
     const menu = dropdown.querySelector('.dropdown-menu');
