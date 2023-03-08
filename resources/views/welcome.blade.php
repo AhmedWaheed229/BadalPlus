@@ -17,9 +17,8 @@
                     </ul>
                 </div>
             </div>
-            <form method="post" action="{{route("browse")}}">
                 <div class="col-md-6 answering rounded-4">
-                    <form>
+                    <form action="{{route("browse")}}">
                         <div class="change-btn">
                             <div class="buy-btn">Buy</div>
                             <div class="sell-btn">Sell</div>
@@ -72,9 +71,7 @@
                         <div class="dropdown dropdown-3 dropdown-show">
                             <h1 class="selected"></h1>
                             <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Show All
-                            </a>
+                                aria-expanded="false">Show All</a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
                                 <li><a onclick="test()" class="dropdown-item">Skrill</a></li>
                                 <li><a onclick="test()" class="dropdown-item">Perfect money</a></li>
@@ -97,11 +94,9 @@
                             <input type="hidden" name="currency">
                             <h3 class="pos">Minimum: 10 EGP</h3>
                         </div>
-
                         <button type="submit" class="form-btn">Find Offers</button>
                     </form>
                 </div>
-            </form>
         </div>
     </div>
 </section>
