@@ -91,9 +91,8 @@
                         </div>
 
                         <div class="dropdown dropdown-4 dropdown-show">
-                            <h2>I want to spend</h2>
-                            <h1 class="selected"></h1>
-                            <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <input type="number">
+                            <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 EGP
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
@@ -339,6 +338,7 @@
                 </div>
             </div>
         </div>
+        <script src="{{asset('js/badal.js')}}"></script>
     </section>
     <!--  end customer say  -->
 
