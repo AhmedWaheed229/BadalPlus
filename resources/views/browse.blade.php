@@ -16,13 +16,13 @@
                         <span><img width="25px"  src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets. Socialmedia, Games</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="test()" href="#">Youtube</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#">Instagram</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#">Tiktok</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#">PUBG MOBILE</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#">League of legends</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#">Valorant</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#">Fortnite</a></li>
+                        <li><a class="dropdown-item" onclick="test()">Youtube</a></li>
+                        <li><a class="dropdown-item" onclick="test()">Instagram</a></li>
+                        <li><a class="dropdown-item" onclick="test()">Tiktok</a></li>
+                        <li><a class="dropdown-item" onclick="test()">PUBG MOBILE</a></li>
+                        <li><a class="dropdown-item" onclick="test()">League of legends</a></li>
+                        <li><a class="dropdown-item" onclick="test()">Valorant</a></li>
+                        <li><a class="dropdown-item" onclick="test()">Fortnite</a></li>
                     </ul>
                     <div class="currency">
                         <span>1 BTC  =</span><span>24,566.26 USD</span><i class="fa-sharp fa-solid fa-arrow-trend-up"></i>
@@ -245,7 +245,7 @@
             }
         });
     }
-    
+
 </script>
 <script src="{{asset('js/badal2.js')}}"></script>
 @endsection
