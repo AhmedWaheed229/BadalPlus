@@ -16,4 +16,5 @@ Route::group(['middleware' => ['auth:api', 'check_active_api']], function() {
     Route::get('/user', 'AuthController@user');
     Route::post('/logout', 'AuthController@logout');
     Route::post('/update-user', 'AuthController@updateUser');
+    Route::post('/register','AuthController@register');
 });
