@@ -281,6 +281,7 @@ class MessagesController extends Controller
         $post = Post::with('user', 'currency', 'category')
             ->where('active', 1)->find($post_id);
 
+
         if ($post->created_by == Auth::user()->id) {
             $user_id = $request['id'];
         } else {
