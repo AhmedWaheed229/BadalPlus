@@ -277,11 +277,9 @@ class MessagesController extends Controller
     public function fetch(Request $request)
     {
         $post_id = $request['post_id'] ?? 0;
-        //dd($post_id);
         $query = Chatify::fetchMessagesQuery($request['id'], $post_id)->latest();
         $post = Post::with('user', 'currency', 'category')
             ->where('active', 1)->find($post_id);
-
 
         if ($post->created_by == Auth::user()->id) {
             $user_id = $request['id'];
