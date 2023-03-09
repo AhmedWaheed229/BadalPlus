@@ -14,8 +14,16 @@
                 <div class="dropdown dropdown-1">
                     <a class="btn dropdown-toggle test selected" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
+                        @if (session()->get('category')!=null)
+                        @foreach ($main_categories as $cat )
+                        @if ($cat->id == session()->get('category'))
+                        {{ $cat->name }}
+                        @endif
+                        @endforeach
+                        @else
                         <span><img width="25px" src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets.
                             Socialmedia, Games</span>
+                        @endif
                     </a>
                     <ul class="dropdown-menu">
                         @foreach ($main_categories as $cat)
@@ -34,12 +42,20 @@
 
                 <div class="dropdown dropdown-z dropdown-3 dropdown-show">
                     <h1 style="width: 100%" class="selected" id="suba">
+                        @if (session()->get('sub_category')!=null)
+                        @foreach ($subcat as $cat )
+                        @if (session()->get('sub_category')==$cat->id)
+                        <a><img src="{{ asset('images/categories/'.$cat->image) }}" alt="" srcset="">{{ $cat->name }}</a>
+                        @endif
+                        @endforeach
+                        @else
                         <img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 9/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 16/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 5/512.png')}}" alt="">
                         <img class="r-img" src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">
+                        @endif
                     </h1>
                     <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -90,9 +106,10 @@
 
                 <div class="dropdown dropdown-4 dropdown-show">
                     <h2 style="color:black;">I want to spend</h2>
-                    <input type="number">
+                    <input type="number" name="cost" value="{{ session()->get('cost') }}" >
                     <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"></a>
+                        aria-expanded="false">@foreach ($currencies as $c )@if ($c->id== session()->get('currency')){{ $c->name}}@endif
+                        @endforeach</a>
                     <ul class="dropdown-menu" data-popper-placement="bottom-start">
                         @foreach ($currencies as $c)
                         <li><a class="dropdown-item" onclick="currency({{$c->id}})">{{ $c->name }}</a></li>
@@ -102,7 +119,7 @@
                     <h3 class="pos" style="color:black;">Offer owner location</h3>
                 </div>
                 <div class="form-input">
-                    <input placeholder="United Kingdom (UK)" type="text">
+                    <input placeholder="United Kingdom (UK)" name="country" value="{{ session()->get('country') }}" type="text">
                 </div>
                 <p class="warning">Release the money to seller only after recceiving (1) confirmation in your wallet</p>
                 <p class="esc-info"><a class="a1" href="#">Click me</a> for more information about our <a class="a2"
