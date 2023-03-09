@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+@endsection
 @section('content')
 <!--  start browse  -->
 <section class="browse">
@@ -138,7 +140,7 @@
                     {{ __('btc offers') }} (BTC).
                 </h3>
             </div>
-            <table>
+            <table id="id-table">
                 <thead>
                     <tr>
                         <td>Buy from</td>
@@ -282,4 +284,14 @@
 }
 </script>
 <script src="{{asset('js/badal2.js')}}"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('#id-table').DataTable({
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "paging": true,
+        "pageLength": 10 // display 10 records per page
+    });
+});
+</script>
 @endsection
