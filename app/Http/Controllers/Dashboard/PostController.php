@@ -78,6 +78,7 @@ class PostController extends Controller
             "sub_category" => "required|numeric|exists:categories,id",
             "currency_id" => "required|numeric|exists:currencies,id",
             "price" => "required|numeric|gt:0",
+            "min_price"=>"required|numeric|gt:0",
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
         $data = $request->except('_token', 'image', 'main_category', 'sub_category');

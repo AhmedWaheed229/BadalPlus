@@ -92,6 +92,7 @@
     "required data": "البيانات المطلوبة",
     "sub categories": "الأقسام الفرعية",
     "price": "السعر",
+    "min price": "السعر الادنى",
     "currency": "العملة",
     "currencies": "العملات",
     "rate": "سعر التحويل",

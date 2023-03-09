@@ -21,7 +21,6 @@ class HomeController extends Controller
     }
 
     public function browse(Request $request){
-
         $posts = Post::query();
 
         if($request->filled('category')){
@@ -32,21 +31,21 @@ class HomeController extends Controller
         if($request->filled('sub_category')){
             $posts = $posts->where('category_id', $request->sub_category);
         }
-
         if($request->filled('currency')){
             $posts = $posts->where('currency_id', $request->currency);
         }
-
+        // if($request->filled('cost')){
+        //     $posts = $posts->where('price', '>', $request->cost);
+        // }
         if($request->filled('title')){
             $posts = $posts->where('title', 'like', '%' . $request->title . '%');
         }
-
         $posts = $posts->where('active', 1)->where('status', 1)
         ->with('user', 'currency', 'category')->latest()->paginate(15);
         $categories_parent = Category::where('parent_id','0')->get();
-        $post_count = Post::where('active', 1)->where('status', 1)->count();
+        // $post_count = Post::where('active', 1)->where('status', 1)->count();
 
-        return view('browse', compact('posts', 'post_count'))->with('categories_parent',$categories_parent);
+        return view('browse', compact('posts'))->with('categories_parent',$categories_parent);
     }
 
     public function getSubCategoris(Request $request)

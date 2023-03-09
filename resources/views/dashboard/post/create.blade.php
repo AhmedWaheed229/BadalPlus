@@ -87,6 +87,14 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
+                                    <label for="price">{{__("min price")}} <span class="text-danger">*</span></label>
+                                    <input value="{{old('price')}}" placeholder="{{__('min price')}}" id="price" type="number" step="0.01"
+                                           class="form-control @error('price') is-invalid @enderror" name="min_price">
+                                    @error('min_price')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-6">
                                     <label for="price">{{__("price")}} <span class="text-danger">*</span></label>
                                     <input value="{{old('price')}}" placeholder="{{__('price')}}" id="price" type="number" step="0.01"
                                            class="form-control @error('price') is-invalid @enderror" name="price">

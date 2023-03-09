@@ -1,36 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-
 <!--  start browse  -->
 <section class="browse">
 
     <div class="row">
         <div class="col-md-3 browse-form">
-            <form>
+            <form method="post" action="{{route("browse")}}">
+                @csrf
                 <div class="form-title">
                     <h1>Buy</h1>
                 </div>
                 <div class="dropdown dropdown-1">
-                    <a class="btn dropdown-toggle test selected" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span><img width="25px"  src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets. Socialmedia, Games</span>
+                    <a class="btn dropdown-toggle test selected" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <span><img width="25px" src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets.
+                            Socialmedia, Games</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" onclick="test()">Youtube</a></li>
-                        <li><a class="dropdown-item" onclick="test()">Instagram</a></li>
-                        <li><a class="dropdown-item" onclick="test()">Tiktok</a></li>
-                        <li><a class="dropdown-item" onclick="test()">PUBG MOBILE</a></li>
-                        <li><a class="dropdown-item" onclick="test()">League of legends</a></li>
-                        <li><a class="dropdown-item" onclick="test()">Valorant</a></li>
-                        <li><a class="dropdown-item" onclick="test()">Fortnite</a></li>
+                        @foreach ($main_categories as $cat)
+                        <li>
+                            <a class="dropdown-item" onclick="getSubCategories({{$cat->id}})">{{ $cat->name }}</a>
+                        </li>
+                        @endforeach
                     </ul>
+                    <input type="hidden" name="category">
+
                     <div class="currency">
-                        <span>1 BTC  =</span><span>24,566.26 USD</span><i class="fa-sharp fa-solid fa-arrow-trend-up"></i>
+                        <span>1 BTC =</span><span>24,566.26 USD</span><i
+                            class="fa-sharp fa-solid fa-arrow-trend-up"></i>
                     </div>
                 </div>
 
                 <div class="dropdown dropdown-z dropdown-3 dropdown-show">
-                    <h1 style="width: 100%" class="selected">
+                    <h1 style="width: 100%" class="selected" id="suba">
                         <img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">
                         <img src="{{asset('images/second select icons/Rectangle 9/512.png')}}" alt="">
@@ -44,12 +47,10 @@
                         <span></span>
                         <span></span>
                     </a>
-                    <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                        <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt=""> BTC</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">USDT</a></li>
-                        <li><a class="dropdown-item" onclick="test()" href="#"><img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">Ethereum</a></li>
+                    <ul class="dropdown-menu" id="subcat" data-popper-placement="bottom-start">
                     </ul>
                 </div>
+                <input type="hidden" name="sub_category">
 
                 <div class="dropdown dropdown-x dropdown-3 dropdown-show">
                     <h2>Pay via</h2>
@@ -68,12 +69,22 @@
                         <span></span>
                     </a>
                     <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 3/512.png')}}" alt="">Vodafone cash</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 4/512.png')}}" alt="">etisalat</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 5/512.png')}}" alt="">Orange cash</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 6/512.png')}}" alt="">CIB</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 7/512.png')}}" alt="">Visa</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#"><img src="{{asset('images/first select icons/Ellipse 8/512.png')}}" alt="">Master</a></li>
+                        <li><a onclick="test()" class="dropdown-item" href="#"><img
+                                    src="{{asset('images/first select icons/Ellipse 3/512.png')}}" alt="">Vodafone
+                                cash</a></li>
+                        <li><a onclick="test()" class="dropdown-item" href="#"><img
+                                    src="{{asset('images/first select icons/Ellipse 4/512.png')}}" alt="">etisalat</a>
+                        </li>
+                        <li><a onclick="test()" class="dropdown-item" href="#"><img
+                                    src="{{asset('images/first select icons/Ellipse 5/512.png')}}" alt="">Orange
+                                cash</a></li>
+                        <li><a onclick="test()" class="dropdown-item" href="#"><img
+                                    src="{{asset('images/first select icons/Ellipse 6/512.png')}}" alt="">CIB</a></li>
+                        <li><a onclick="test()" class="dropdown-item" href="#"><img
+                                    src="{{asset('images/first select icons/Ellipse 7/512.png')}}" alt="">Visa</a></li>
+                        <li><a onclick="test()" class="dropdown-item" href="#"><img
+                                    src="{{asset('images/first select icons/Ellipse 8/512.png')}}" alt="">Master</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -81,14 +92,13 @@
                     <h2 style="color:black;">I want to spend</h2>
                     <input type="number">
                     <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        USD
-                    </a>
+                        aria-expanded="false"></a>
                     <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                        <li><a onclick="test()" class="dropdown-item" href="#">test 1</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#">test 2</a></li>
-                        <li><a onclick="test()" class="dropdown-item" href="#">test 3</a></li>
+                        @foreach ($currencies as $c)
+                        <li><a class="dropdown-item" onclick="currency({{$c->id}})">{{ $c->name }}</a></li>
+                        @endforeach
                     </ul>
+                    <input type="hidden" name="currency">
                     <h3 class="pos" style="color:black;">Offer owner location</h3>
                 </div>
                 <div class="form-input">
@@ -107,13 +117,10 @@
             </div>
 
             <div>
-                <h3 style="margin-top: 20px" class="table-title">{{__('posts')}} ({{$post_count}})
+                <h3 style="margin-top: 20px" class="table-title">{{__('posts')}} ({{ $posts->total() }})
                     {{ __('btc offers') }} (BTC).
                 </h3>
             </div>
-
-
-
             <table>
                 <thead>
                     <tr>
@@ -217,11 +224,11 @@
 @section("scripts")
 
 <script>
-    @if(request("category"))
-        $(window).load(function(){
-            getSubCategories('{{ request("category") }}');
-        });
-    @endif
+    // @if(request("category"))
+    //     $(window).load(function(){
+    //         getSubCategories('{{ request("category") }}');
+    //     });
+    // @endif
 
     $("#main_categories").change(function(){
         var id = $(this).val();
@@ -229,6 +236,7 @@
     });
 
     function getSubCategories($id){
+        $('input[name="category"]').val($id);
         $.ajax({
             url : '{{ route("web.getSubCategoris") }}',
             type : 'GET',
@@ -236,16 +244,25 @@
             success : function(result){
                 var old_cat = "{{ request("sub_category") }}";
                 var selected = "";
-                var html = '<option value="">{{ __("Choose From Subcategories") }}</option>';
+                var html = '';
                 $.each(result , function(index,val) {
                     old_cat == val.id ? selected = "selected" : selected = "";
-                    html += '<option '+ selected +' value="'+ val.id +'">'+ val.name +'</option>';
+                    html += '<li><a class="dropdown-item" onclick="sub('+val.id+','+`'${val.name}'`+','+`'${val.image}'`+')"><img src="';
+                    html += "{{ asset('images/') }}";
+                    html+= '/categories/'+val.image+'">'+val.name+'</a></li>';
                 });
-                $("#sub_categories").html(html);
+                $("#subcat").html(html);
             }
         });
     }
+    function sub(id, name, image) {
+    $('input[name="sub_category"]').val(id);
+    var add = '<img src="';
+    add += "{{ asset('images/') }}";
+    add += '/categories/' + image + '">' + name + '</a></li>';
 
+    document.getElementById("suba").innerHTML = add;
+}
 </script>
 <script src="{{asset('js/badal2.js')}}"></script>
 @endsection

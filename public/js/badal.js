@@ -3,12 +3,12 @@ var sellBtn = document.querySelector('.sell-btn');
 const dropdowns = document.querySelectorAll('.dropdown');
 
 
-sellBtn.onclick = function () {
+sellBtn.onclick = function() {
     sellBtn.classList.add('active');
     buyBtn.classList.remove('active');
 }
 
-buyBtn.onclick = function () {
+buyBtn.onclick = function() {
     buyBtn.classList.add('active');
     sellBtn.classList.remove('active');
 }
@@ -18,12 +18,6 @@ dropdowns.forEach(dropdown => {
     const dropBtn = dropdown.querySelector('.dropdown-toggle');
     const options = dropdown.querySelectorAll('.dropdown-menu li a');
     const selected = dropdown.querySelector('.selected');
-
-    console.log(menu);
-    console.log(dropBtn);
-    console.log(options);
-    console.log(selected);
-    
     options.forEach(option => {
         option.addEventListener('click', function() {
             selected.innerHTML = option.innerHTML;
@@ -31,7 +25,6 @@ dropdowns.forEach(dropdown => {
     })
 })
 
-function test() {
-    console.log('test function');
+function currency(id) {
+    $('input[name="currency"]').val(id);
 }
-

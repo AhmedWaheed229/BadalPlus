@@ -18,22 +18,21 @@
                 </div>
             </div>
                 <div class="col-md-6 answering rounded-4">
-                    <form action="{{route("browse")}}">
+                    <form method="post" action="{{route("browse")}}">
+                        @csrf
                         <div class="change-btn">
                             <div class="buy-btn">Buy</div>
                             <div class="sell-btn">Sell</div>
                         </div>
 
                         <div class="dropdown dropdown-1">
-                            <a class="btn dropdown-toggle test selected" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="btn dropdown-toggle test selected" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span><img width="25px" src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets.
                                     Socialmedia, Games</span>
                             </a>
                             <ul class="dropdown-menu">
                                 @foreach ($main_categories as $cat)
-                                <li><a class="dropdown-item"
-                                        onclick="getSubCategories({{$cat->id}})">{{ $cat->name }}</a></li>
+                                <li><a class="dropdown-item" onclick="getSubCategories({{$cat->id}})">{{ $cat->name }}</a></li>
                                 @endforeach
                             </ul>
                             <input type="hidden" name="category">
@@ -44,7 +43,7 @@
                         </div>
 
                         <div class="dropdown dropdown-2">
-                            <a class="btn dropdown-toggle selected" role="button" data-bs-toggle="dropdown"
+                            <a class="btn dropdown-toggle selected" id="suba" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt="">
                                 <img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">
@@ -61,10 +60,10 @@
                             </a>
                             <ul class="dropdown-menu" id="subcat" data-popper-placement="bottom-start">
                             </ul>
-                            <input type="hidden" name="sub">
                             <div class="currency">
                                 <span>Pay with</span>
                             </div>
+                            <input type="hidden" name="sub_category">
                         </div>
 
 
@@ -73,10 +72,10 @@
                             <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">Show All</a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                <li><a onclick="test()" class="dropdown-item">Skrill</a></li>
-                                <li><a onclick="test()" class="dropdown-item">Perfect money</a></li>
-                                <li><a onclick="test()" class="dropdown-item">Web money</a></li>
-                                <li><a onclick="test()" class="dropdown-item">Pioneer</a></li>
+                                <li><a class="dropdown-item">Skrill</a></li>
+                                <li><a class="dropdown-item">Perfect money</a></li>
+                                <li><a class="dropdown-item">Web money</a></li>
+                                <li><a class="dropdown-item">Pioneer</a></li>
                             </ul>
                         </div>
 
@@ -84,11 +83,11 @@
                             <input type="number" name="cost" >
                             <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                EGP
+                                currency
                             </a>
                             <ul class="dropdown-menu" data-popper-placement="bottom-start">
                                 @foreach ($currencies as $c)
-                                <li><a class="dropdown-item" onclick="currency({{ $c->id }})">{{ $c->name }}</a></li>
+                                <li><a class="dropdown-item" onclick="currency({{$c->id}})">{{ $c->name }}</a></li>
                                 @endforeach
                             </ul>
                             <input type="hidden" name="currency">
@@ -318,7 +317,6 @@
 <!--  end customer say  -->
 @endsection
 @section("scripts")
-
 <script>
     @if(request("category"))
         $(window).load(function(){
@@ -332,6 +330,7 @@
     });
 
     function getSubCategories($id){
+        $('input[name="category"]').val($id);
         $.ajax({
             url : '{{ route("web.getSubCategoris") }}',
             type : 'GET',
@@ -342,21 +341,21 @@
                 var html = '';
                 $.each(result , function(index,val) {
                     old_cat == val.id ? selected = "selected" : selected = "";
-                    html += '<li><a class="dropdown-item" onclick="sub('+val.id+')"><img src="';
+                    html += '<li><a class="dropdown-item" onclick="sub('+val.id+','+`'${val.name}'`+','+`'${val.image}'`+')"><img src="';
                     html += "{{ asset('images/') }}";
-                    html+= '/categories/'+val.image+'" alt="">'+val.name+'</a></li>';
+                    html+= '/categories/'+val.image+'">'+val.name+'</a></li>';
                 });
                 $("#subcat").html(html);
             }
         });
     }
-</script>
-<script>
-    function currency(id) {
-        $('input[name="currency"]').val(id)
-    }
-    function sub(id) {
-        $('input[name="sub"]').val(id)
-    }
+    function sub(id, name, image) {
+    $('input[name="sub_category"]').val(id);
+    var add = '<img src="';
+    add += "{{ asset('images/') }}";
+    add += '/categories/' + image + '">' + name + '</a></li>';
+
+    document.getElementById("suba").innerHTML = add;
+}
 </script>
 @endsection
