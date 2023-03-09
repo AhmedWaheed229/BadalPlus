@@ -35,7 +35,7 @@ class HomeController extends Controller
             $posts = $posts->where('currency_id', $request->currency);
         }
         if($request->filled('cost')){
-            $posts = $posts->where('price', '>', $request->cost);
+            $posts = $posts->where('price', '<', $request->cost)->orWhere('min_price','<',$request->cost);
         }
         if($request->filled('title')){
             $posts = $posts->where('title', 'like', '%' . $request->title . '%');
