@@ -15,9 +15,8 @@
     <link rel="stylesheet" href="{{asset('js/slick/slick.css')}}">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    
-    @yield('css')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    @yield('css')
     @if(app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{asset('css/style_ar.css')}}">
     @endif
@@ -156,14 +155,14 @@
     </div>
 </section>
 
+
 <script src="{{asset('js/jquery-2.1.1.js')}}"></script>
 <script src="{{asset('js/slick/slick.min.js')}}"></script>
 <script src="{{asset('js/wow.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+
 <script src="{{asset('js/main.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
 
 <script src="{{asset('service-worker.js')}}"></script>
 <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>

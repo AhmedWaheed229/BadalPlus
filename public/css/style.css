@@ -185,7 +185,7 @@ a{
 .welcome-section .answering{
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
-    border: 0.5px solid rgba(0, 0, 0, 0.246);
+    border: none;
     padding: 25px;
 }
 
@@ -498,7 +498,7 @@ a{
 }
 
 .welcome-section .answering form .dropdown.dropdown-3{
-    padding: 0 15px;
+    padding: 0 10px;
 }
 
 .welcome-section .answering form .dropdown.dropdown-4
@@ -631,7 +631,7 @@ a{
 
 
 .welcome-section .answering form .dropdown.dropdown-3 ul{
-    transform: translate(-15px , 63px) !important;
+    transform: translate(-10px , 63px) !important;
 }
 
 @media (max-width: 1200px){

@@ -21,7 +21,7 @@
                     <form method="post" action="{{route("browse")}}">
                         @csrf
                         <div class="change-btn">
-                            <div class="buy-btn">Buy</div>
+                            <div class="buy-btn active">Buy</div>
                             <div class="sell-btn">Sell</div>
                         </div>
 
@@ -313,6 +313,7 @@
         </div>
     </div>
     <script src="{{asset('js/badal.js')}}"></script>
+    
 </section>
 <!--  end customer say  -->
 @endsection
