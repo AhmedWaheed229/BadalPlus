@@ -58,4 +58,8 @@ class HomeController extends Controller
 
         return response()->json($categories);
     }
+    public function newchat()
+    {
+        return view('newchat');
+    }
 }
