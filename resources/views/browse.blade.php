@@ -285,7 +285,7 @@
 </script>
 <script src="{{asset('js/badal2.js')}}"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script>
+{{-- <script>
     $(document).ready(function() {
     $('#id-table').DataTable({
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
@@ -293,5 +293,5 @@
         "pageLength": 10 // display 10 records per page
     });
 });
-</script>
+</script> --}}
 @endsection
