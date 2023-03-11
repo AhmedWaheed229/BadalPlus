@@ -370,22 +370,26 @@ a{
 .welcome-section .answering form .dropdown ul li,
 .browse form .dropdown ul li{
     background-color: white;
-    border: 0.5px solid rgba(0, 0, 0, 0.246);
+    border: none;
     border-top: none;
     border-bottom: none;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .welcome-section .answering form .dropdown ul a
 ,.browse form .dropdown ul a{
-    padding: 10px;
-    border: none;
+    padding: 10px 15px;
     background-color: white;
     transition: 0.3s;
+    border-radius: 5px;
+    border: 0.6px solid white;
 }
 
 .welcome-section .answering form .dropdown ul a:hover
 ,.browse form .dropdown ul a:hover{
-    background-color: rgb(224, 224, 224);
+    background-color: #fbf3d8;
+    border: 0.6px solid #FBD540;
 }
 
 .welcome-section .answering form .dropdown.dropdown.dropdown-show > a::before
@@ -479,6 +483,7 @@ a{
 ,.browse form .dropdown.dropdown.dropdown-4 > a{
     display: flex;
     justify-content: center;
+
 }
 
 
@@ -498,7 +503,7 @@ a{
 }
 
 .welcome-section .answering form .dropdown.dropdown-3{
-    padding: 0 10px;
+    padding: 0 10px 0 20px;
 }
 
 .welcome-section .answering form .dropdown.dropdown-4
@@ -554,39 +559,35 @@ a{
 }
 
 .welcome-section .answering form .dropdown.dropdown-1 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .welcome-section .answering form .dropdown.dropdown-1 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 .welcome-section .answering form .dropdown.dropdown-2 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .welcome-section .answering form .dropdown.dropdown-2 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 .welcome-section .answering form .dropdown.dropdown-3 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .welcome-section .answering form .dropdown.dropdown-3 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 .welcome-section .answering form .dropdown.dropdown-4 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .welcome-section .answering form .dropdown.dropdown-4 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 
@@ -594,44 +595,40 @@ a{
 
 
 .browse form .dropdown.dropdown-1 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .browse form .dropdown.dropdown-1 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 .browse form .dropdown.dropdown-2 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .browse form .dropdown.dropdown-2 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 .browse form .dropdown.dropdown-3 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .browse form .dropdown.dropdown-3 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 .browse form .dropdown.dropdown-4 ul::-webkit-scrollbar{
-    background-color: #e6e6e6;
-    width: 13px;
+    display: none;
 }
 
 .browse form .dropdown.dropdown-4 ul::-webkit-scrollbar-thumb{
-    background-color: #FBD540;
+    display: none;
 }
 
 
 .welcome-section .answering form .dropdown.dropdown-3 ul{
-    transform: translate(-10px , 63px) !important;
+    transform: translate(-20px , 65px) !important;
 }
 
 @media (max-width: 1200px){
@@ -658,7 +655,7 @@ a{
         height: 30PX;
         width: 75px;
         text-align: center;
-        padding: 5px 5px;
+        padding: 5px 10px;
     }
 
     .welcome-section .answering form .dropdown.dropdown-3,
@@ -2215,6 +2212,7 @@ a{
     .browse .browse-table table thead tr td:nth-child(5){
         font-size: 9px;
         padding: 5px;
+        width: calc(100% / 5);
     }
 
     .browse .browse-table table tbody tr td:nth-child(1),
@@ -2223,6 +2221,7 @@ a{
     .browse .browse-table table tbody tr td:nth-child(4),
     .browse .browse-table table tbody tr td:nth-child(5){
         padding: 5px;
+        width: 100%;
     }
 
     .browse .browse-table table tbody tr td:nth-child(3) span h1{
@@ -3024,7 +3023,8 @@ a{
     }
 
     .welcome-section .answering form .dropdown > a{
-        padding: 7px 18px;
+        padding: 7px 19px;
+        font-size: 13px;
     }
 }
 
