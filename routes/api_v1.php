@@ -11,10 +11,13 @@ Route::get('/categories', 'CategoryController@index');
 
 
 Route::post('/login', 'AuthController@login');
+Route::post('/register','AuthController@register');
 
 Route::group(['middleware' => ['auth:api', 'check_active_api']], function() {
     Route::get('/user', 'AuthController@user');
     Route::post('/logout', 'AuthController@logout');
     Route::post('/update-user', 'AuthController@updateUser');
-    Route::post('/register','AuthController@register');
+});
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('wallet','WalletController@wallet');
 });
