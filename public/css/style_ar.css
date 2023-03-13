@@ -19,6 +19,11 @@
     right: 0;
     left: auto;
 }
+
+.welcome-section .welcome-text{
+    direction: rtl;
+}
+
 .slick-slider{
     direction: ltr;
 }

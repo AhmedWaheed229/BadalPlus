@@ -165,19 +165,29 @@ a{
 /* end navbar */
 
 /* welcome section */
-.welcome-section {
+.welcome-section{
     padding: 20px 0;
     overflow: hidden;
     z-index: 500 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-section .container{
+    direction: rtl;
+    margin: 0;
 }
 .welcome-section .welcome-text {
     margin-bottom: 30px;
+    direction: ltr;
+    padding: 0 40px 0 0;
 }
 .welcome-section .welcome-text h1{
     color: #3B4F61;
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 60px;
     margin-bottom: 30px;
 }
@@ -187,6 +197,10 @@ a{
     border-radius: 10px;
     border: none;
     padding: 25px;
+}
+
+.welcome-section .answering form{
+    direction: ltr;
 }
 
 .welcome-section .answering form
@@ -364,8 +378,6 @@ a{
     height: 150px;
     overflow-y: scroll;
 }
-
-
 
 .welcome-section .answering form .dropdown ul li,
 .browse form .dropdown ul li{
@@ -731,6 +743,7 @@ a{
     padding-left: 50px;
     position: relative;
     min-height: 45px;
+    font-size: 18px;
 }
 .welcome-section .welcome-list li:last-of-type{
      margin-bottom: 0;
@@ -2003,6 +2016,10 @@ a{
     .welcome-section .answering form .dropdown.dropdown.dropdown-2 > a img {
         width: 35px;
         margin: 0 12px 0 0;
+    }
+
+    .welcome-section .welcome-text{
+        padding: 0;
     }
 }
 
