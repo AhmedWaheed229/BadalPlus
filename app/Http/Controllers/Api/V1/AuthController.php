@@ -41,10 +41,16 @@ class AuthController extends Controller
                 'uid'=>$request->uid
             ]);
             $token = $user->createToken(auth()->user()->name);
-        }else{
+        }elseif($request->uid == $user->uid){
             return response([
                 'message'=> 'already used device'
             ]);
+        }else{
+            $usercheck->delete();
+            User::where('id',$user->id)->update([
+                'uid'=>$request->uid
+            ]);
+            $token = $user->createToken(auth()->user()->name);
         }
 
         return response()->json([
