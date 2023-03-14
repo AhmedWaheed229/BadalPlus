@@ -197,7 +197,7 @@
                                 <h2>1%</h2>
                                 <ion-icon name="alert"></ion-icon>
                             </span>
-                            <a href="{{route("post.show", $post->id)}}">{{ ('buy now') }}</a>
+                            <a href="{{route("post.show", $post->id)}}"><img src="{{ asset($post->currency->image_url) }}" alt="" srcset="">{{ ('buy now') }}</a>
                         </td>
                     </tr>
                     @endforeach
