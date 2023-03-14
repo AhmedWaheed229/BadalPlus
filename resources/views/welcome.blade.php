@@ -7,7 +7,86 @@
 <section style="background-color: #eca9001a;" class="welcome-section p-4">
     <div class="container">
         <div class="row justify-content-between align-items-center">
-            <div class="col-md-6">
+            <div class="col-md-6 answering rounded-4">
+                <form method="post" action="{{route("browse")}}">
+                    @csrf
+                    <div class="change-btn">
+                        <div class="buy-btn active">Buy</div>
+                        <div class="sell-btn">Sell</div>
+                    </div>
+
+                    <div class="dropdown dropdown-1">
+                        <a class="btn dropdown-toggle test selected" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span><img width="25px" src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets.
+                                Socialmedia, Games</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach ($main_categories as $cat)
+                            <li><a class="dropdown-item" onclick="getSubCategories({{$cat->id}})">{{ $cat->name }}</a></li>
+                            @endforeach
+                        </ul>
+                        <input type="hidden" name="category">
+                        <div class="currency">
+                            <span>1 BTC =</span><span>24,566.26 USD</span><i
+                                class="fa-sharp fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                    </div>
+
+                    <div class="dropdown dropdown-2">
+                        <a class="btn dropdown-toggle selected" id="suba" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt="">
+                            <img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">
+                            <img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">
+                            <img src="{{asset('images/second select icons/Rectangle 9/512.png')}}" alt="">
+                            <img src="{{asset('images/second select icons/Rectangle 5/512.png')}}" alt="">
+                            <img src="{{asset('images/second select icons/Rectangle 15/512.png')}}" alt="">
+                            <img class="r-img" src="{{asset('images/second select icons/Rectangle 7/512.png')}}"
+                                alt="">
+                            <img class="r-img" src="{{asset('images/second select icons/Rectangle 8/512.png')}}"
+                                alt="">
+                            <img class="r-img" src="{{asset('images/second select icons/Rectangle 16/512.png')}}"
+                                alt="">
+                        </a>
+                        <ul class="dropdown-menu" id="subcat" data-popper-placement="bottom-start">
+                        </ul>
+                        <div class="currency">
+                            <span>Pay with</span>
+                        </div>
+                        <input type="hidden" name="sub_category">
+                    </div>
+
+
+                    <div class="dropdown dropdown-3 dropdown-show">
+                        <h1 class="selected"></h1>
+                        <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">Show All</a>
+                        <ul class="dropdown-menu" data-popper-placement="bottom-start">
+                            <li><a class="dropdown-item">Skrill</a></li>
+                            <li><a class="dropdown-item">Perfect money</a></li>
+                            <li><a class="dropdown-item">Web money</a></li>
+                            <li><a class="dropdown-item">Pioneer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown dropdown-4 dropdown-show">
+                        <input type="number" name="cost" >
+                        <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            currency
+                        </a>
+                        <ul class="dropdown-menu" data-popper-placement="bottom-start">
+                            @foreach ($currencies as $c)
+                            <li><a class="dropdown-item" onclick="currency({{$c->id}})">{{ $c->name }}</a></li>
+                            @endforeach
+                        </ul>
+                        <input type="hidden" name="currency">
+                        <h3 class="pos">Minimum: 10 EGP</h3>
+                    </div>
+                    <button type="submit" class="form-btn">Find Offers</button>
+                </form>
+            </div>
+            <div class="col-md-6 welcome-title">
                 <div class="welcome-text wow fadeInUp" data-wow-delay="0.3s">
                     <h1>{{$welcome_title->content}}</h1>
                     <ul class="welcome-list">
@@ -17,85 +96,6 @@
                     </ul>
                 </div>
             </div>
-                <div class="col-md-6 answering rounded-4">
-                    <form method="post" action="{{route("browse")}}">
-                        @csrf
-                        <div class="change-btn">
-                            <div class="buy-btn active">Buy</div>
-                            <div class="sell-btn">Sell</div>
-                        </div>
-
-                        <div class="dropdown dropdown-1">
-                            <a class="btn dropdown-toggle test selected" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span><img width="25px" src="{{asset('images/crybto.png')}}"> CryptoCurrency, Wallets.
-                                    Socialmedia, Games</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                @foreach ($main_categories as $cat)
-                                <li><a class="dropdown-item" onclick="getSubCategories({{$cat->id}})">{{ $cat->name }}</a></li>
-                                @endforeach
-                            </ul>
-                            <input type="hidden" name="category">
-                            <div class="currency">
-                                <span>1 BTC =</span><span>24,566.26 USD</span><i
-                                    class="fa-sharp fa-solid fa-arrow-trend-up"></i>
-                            </div>
-                        </div>
-
-                        <div class="dropdown dropdown-2">
-                            <a class="btn dropdown-toggle selected" id="suba" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <img src="{{asset('images/second select icons/Rectangle 2/512.png')}}" alt="">
-                                <img src="{{asset('images/second select icons/Rectangle 4/512.png')}}" alt="">
-                                <img src="{{asset('images/second select icons/Rectangle 6/512.png')}}" alt="">
-                                <img src="{{asset('images/second select icons/Rectangle 9/512.png')}}" alt="">
-                                <img src="{{asset('images/second select icons/Rectangle 5/512.png')}}" alt="">
-                                <img src="{{asset('images/second select icons/Rectangle 15/512.png')}}" alt="">
-                                <img class="r-img" src="{{asset('images/second select icons/Rectangle 7/512.png')}}"
-                                    alt="">
-                                <img class="r-img" src="{{asset('images/second select icons/Rectangle 8/512.png')}}"
-                                    alt="">
-                                <img class="r-img" src="{{asset('images/second select icons/Rectangle 16/512.png')}}"
-                                    alt="">
-                            </a>
-                            <ul class="dropdown-menu" id="subcat" data-popper-placement="bottom-start">
-                            </ul>
-                            <div class="currency">
-                                <span>Pay with</span>
-                            </div>
-                            <input type="hidden" name="sub_category">
-                        </div>
-
-
-                        <div class="dropdown dropdown-3 dropdown-show">
-                            <h1 class="selected"></h1>
-                            <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">Show All</a>
-                            <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                <li><a class="dropdown-item">Skrill</a></li>
-                                <li><a class="dropdown-item">Perfect money</a></li>
-                                <li><a class="dropdown-item">Web money</a></li>
-                                <li><a class="dropdown-item">Pioneer</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="dropdown dropdown-4 dropdown-show">
-                            <input type="number" name="cost" >
-                            <a class="btn dropdown-toggle selected" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                currency
-                            </a>
-                            <ul class="dropdown-menu" data-popper-placement="bottom-start">
-                                @foreach ($currencies as $c)
-                                <li><a class="dropdown-item" onclick="currency({{$c->id}})">{{ $c->name }}</a></li>
-                                @endforeach
-                            </ul>
-                            <input type="hidden" name="currency">
-                            <h3 class="pos">Minimum: 10 EGP</h3>
-                        </div>
-                        <button type="submit" class="form-btn">Find Offers</button>
-                    </form>
-                </div>
         </div>
     </div>
 </section>
